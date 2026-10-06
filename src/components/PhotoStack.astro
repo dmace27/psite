@@ -1,0 +1,52 @@
+---
+import type { Photo } from '../content/schema';
+interface Props { photos: Photo[]; }
+const { photos } = Astro.props;
+---
+<photo-stack class="photo-stack" tabindex="0" role="region" aria-label="Photo collection. Use left and right arrow keys to browse.">
+  <div class="photo-cards">
+    {photos.map((photo, index) => <figure class:list={['photo-card', index === 0 && 'is-active']} hidden={index !== 0}>
+      <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+      <figcaption>{photo.caption}</figcaption>
+    </figure>)}
+  </div>
+  {photos.length > 1 && <div class="photo-controls" hidden>
+    <button type="button" class="icon-button" data-direction="-1" aria-label="Previous photo">←</button>
+    <span class="meta" role="status" aria-live="polite" data-count>1 / {photos.length}</span>
+    <button type="button" class="icon-button" data-direction="1" aria-label="Next photo">→</button>
+  </div>}
+</photo-stack>
+<script>
+  /** Progressive enhancement: all photos remain available when JavaScript is off. */
+  class PhotoStack extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      this.dataset.ready = 'true';
+      const cards = Array.from(this.querySelectorAll<HTMLElement>('.photo-card'));
+      const controls = this.querySelector<HTMLElement>('.photo-controls');
+      if (cards.length < 2) return;
+      if (controls) controls.hidden = false;
+      let index = 0;
+      const show = (direction: number) => {
+        cards[index].hidden = true;
+        cards[index].classList.remove('is-active');
+        index = (index + direction + cards.length) % cards.length;
+        cards[index].hidden = false;
+        cards[index].classList.add('is-active');
+        const count = this.querySelector('[data-count]');
+        if (count) count.textContent = `${index + 1} / ${cards.length}`;
+      };
+      this.querySelectorAll<HTMLButtonElement>('[data-direction]').forEach((button) => {
+        button.addEventListener('click', () => show(Number(button.dataset.direction)));
+      });
+      this.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          show(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+    }
+  }
+  if (!customElements.get('photo-stack')) customElements.define('photo-stack', PhotoStack);
+</script>
+<noscript><style>photo-stack .photo-card[hidden] { display: block; } photo-stack .photo-cards::before, photo-stack .photo-cards::after { display: none; }</style></noscript>

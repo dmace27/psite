@@ -1,0 +1,9 @@
+---
+import type { RichParagraph } from '../content/schema';
+interface Props { spans: RichParagraph; }
+const { spans } = Astro.props;
+---
+{spans.map((span) => {
+  const classes = [span.tone && `highlight tone-${span.tone}`, span.emphasis && 'emphasis'];
+  return span.href ? <a href={span.href} class:list={classes}>{span.text}</a> : <span class:list={classes}>{span.text}</span>;
+})}

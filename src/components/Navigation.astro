@@ -1,0 +1,31 @@
+---
+import type { Link } from '../content/schema';
+interface Props { links: Link[]; label?: string; }
+const { links, label = 'dm / foundation' } = Astro.props;
+---
+<header class="site-header">
+  <a class="wordmark" href="#main" aria-label="Back to main content">{label}<span aria-hidden="true">✳</span></a>
+  <div class="header-controls">
+    {links.length > 0 && <nav aria-label="Primary navigation">{links.map((link) => <a href={link.href}>{link.label}</a>)}</nav>}
+    <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" hidden><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  if (button) {
+    button.hidden = false;
+    const update = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
+    };
+    update();
+    button.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      // Theme switching works even if browser storage is unavailable.
+      try { localStorage.setItem('personal-site-theme', theme); } catch { /* Optional persistence. */ }
+      update();
+    });
+  }
+</script>

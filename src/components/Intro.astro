@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from '../content/schema';
+import RichText from './RichText.astro';
+import TextLink from './TextLink.astro';
+interface Props { identity: SiteContent['identity']; headingLevel?: 'h1' | 'h3'; }
+// A gallery specimen uses h3; the actual page introduction defaults to h1.
+const { identity, headingLevel: Heading = 'h1' } = Astro.props;
+---
+<header class="intro">
+  <Heading class="intro-title">{identity.name}<span class="accent-dot" aria-hidden="true">.</span></Heading>
+  {identity.introduction.map((spans) => <p><RichText spans={spans} /></p>)}
+  {identity.links.length > 0 && <div class="link-group">{identity.links.map((link) => <TextLink {...link} arrow />)}</div>}
+</header>

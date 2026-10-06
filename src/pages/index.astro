@@ -1,0 +1,50 @@
+---
+import Shell from '../layouts/Shell.astro';
+import Navigation from '../components/Navigation.astro';
+import PhotoStack from '../components/PhotoStack.astro';
+import Intro from '../components/Intro.astro';
+import SectionRenderer from '../components/SectionRenderer.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import { demoPhotos, demoSite, references } from '../content/demo';
+---
+<Shell title="Personal site / design foundation" description="A design direction and reusable component library for a future personal website.">
+  <Navigation links={[{ label: 'Language', href: '#language' }, { label: 'Elements', href: '#elements' }, { label: 'Next', href: '#next' }]} />
+  <main id="main">
+    <section class="gallery-hero" aria-labelledby="gallery-title">
+      <div>
+        <span class="eyebrow">Personal site · design study 001</span>
+        <h1 id="gallery-title">A little space.<br />A lot of you<span class="accent-dot">.</span></h1>
+        <p>A quiet, thoughtful home for your work, ideas, and everything in between. This is the foundation; your story comes next.</p>
+        <div class="control-specimen"><Button href="#elements">Explore the elements <span aria-hidden="true">↓</span></Button><a class="text-link" href="#references">The inspiration ↗</a></div>
+        <div class="status-line"><span class="meta">FOUNDATION READY / CONTENT TO COME</span></div>
+      </div>
+      <div class="hero-aside"><PhotoStack photos={demoPhotos} /><span class="spec-label">PHOTO STACK / ORIGINAL PLACEHOLDER STUDIES</span></div>
+    </section>
+    <section class="gallery-block" id="language" aria-labelledby="language-title">
+      <header><span class="eyebrow">01 / the language</span><h2 id="language-title">Warm. Clear. Personal.</h2><p>A small palette, generous space, and typography that lets the words lead.</p></header>
+      <div>
+        <div class="swatches">{['Paper', 'Ink', 'Sage', 'Sand', 'Accent'].map((name) => <div><div class:list={['swatch', `swatch-${name.toLowerCase()}`]}></div><span class="meta">{name}</span></div>)}</div>
+        <div class="type-specimen"><span class="spec-label">SERIF / A LITTLE CHARACTER</span><h3>Good things take their own shape.</h3><p>Readable sans-serif for the story. A restrained serif for the important moments. Monospace for dates, labels, and little asides.</p></div>
+        <div class="control-specimen"><Badge tone="sage">A current focus</Badge><Badge tone="sand">A small win</Badge><Badge tone="rose">An interest</Badge><Badge tone="blue">A connection</Badge></div>
+        <div class="control-specimen"><Button href="#next">Primary link ↗</Button><Button href="#references" variant="quiet">Secondary link ↗</Button><button class="button quiet" type="button" disabled>Disabled state</button></div>
+      </div>
+    </section>
+    <section class="gallery-block" id="elements" aria-labelledby="elements-title">
+      <header><span class="eyebrow">02 / the elements</span><h2 id="elements-title">Small pieces. Your order.</h2><p>Reusable specimens, ready to become the sections you choose.</p></header>
+      <div>
+        <div class="component-sample"><span class="spec-label">INTRO / INLINE HIGHLIGHTS / SOCIAL LINKS</span><Intro identity={demoSite.identity} headingLevel="h3" /></div>
+        {demoSite.sections.map((section) => <div class="component-sample"><span class="spec-label">{section.type.toUpperCase()} / CONTENT SPECIMEN</span><SectionRenderer sections={[section]} /></div>)}
+      </div>
+    </section>
+    <section class="gallery-block" id="references" aria-labelledby="references-title">
+      <header><span class="eyebrow">03 / the references</span><h2 id="references-title">A shared sensibility.</h2><p>Ideas drawn from the sites in boom.md. Their content and assets stay their own.</p></header>
+      <ul class="source-list">{references.map((reference) => <li><a href={reference.url}>{reference.name} ↗</a><span class="meta">{reference.note}</span></li>)}</ul>
+    </section>
+    <section class="gallery-block" id="next" aria-labelledby="next-title">
+      <header><span class="eyebrow">04 / what comes next</span><h2 id="next-title">Make it yours.</h2><p>The structure is deliberately open.</p></header>
+      <div><p>When you’re ready, send the sections you want, their order, and the content that belongs in each.</p><ol class="next-steps"><li>Your name, introduction, and links.</li><li>Your preferred sections and page structure.</li><li>Projects, experience, writing, photos, or anything else.</li><li>Any details you want to feel especially like you.</li></ol><p class="meta" style="margin-top: 1.5rem">Local design preview · no personal claims · no external services</p></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span class="meta">PERSONAL SITE / FOUNDATION V0.1</span><span class="meta">A starting point, with room to grow. ✳</span></footer>
+</Shell>

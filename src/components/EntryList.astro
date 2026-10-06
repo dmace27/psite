@@ -1,0 +1,19 @@
+---
+import type { Entry } from '../content/schema';
+import Badge from './Badge.astro';
+import TextLink from './TextLink.astro';
+interface Props { items: Entry[]; }
+const { items } = Astro.props;
+---
+<ul class="entry-list" role="list">
+  {items.map((item) => <li>
+    <article class="entry">
+      <div class="entry-top"><h3>{item.title}</h3>{item.date && <span class="meta">{item.date}</span>}</div>
+      {item.subtitle && <p class="entry-subtitle">{item.subtitle}</p>}
+      <p class="entry-summary">{item.summary}</p>
+      {item.tags?.length && <div class="tag-group">{item.tags.map((tag) => <Badge>{tag}</Badge>)}</div>}
+      {item.details?.length && <details><summary>More about {item.title}<span aria-hidden="true"> +</span></summary><ul>{item.details.map((detail) => <li>{detail}</li>)}</ul></details>}
+      {item.links?.length && <div class="link-group">{item.links.map((link) => <TextLink {...link} arrow />)}</div>}
+    </article>
+  </li>)}
+</ul>
