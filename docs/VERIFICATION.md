@@ -13,3 +13,12 @@
 - Gallery heading structure has one h1; the intro specimen uses h3.
 
 These checks cover the foundation and its demo content. The eventual website still needs verification using the owner's real copy, media, routes, and links. No deployment occurred.
+
+## Second study verification — 10 October 2026
+
+- Astro/TypeScript: zero errors, warnings, or hints across 24 files.
+- Static production build succeeds.
+- Browser checks at 1280px desktop and 390px phone widths: no horizontal document overflow.
+- Main preview contains no photo stack and body computed font uses the serif stack.
+- New status, index, feature, timeline, margin-note, and contact specimens reviewed in the gallery.
+- Theme toggle and light/dark presentation checked; mobile featured blocks stack vertically.

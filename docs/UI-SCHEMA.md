@@ -4,6 +4,8 @@ The executable source of truth is [`src/content/schema.ts`](../src/content/schem
 
 ## Visual tokens
 
+Typography follows the second design study: serif for all main text and controls; the `dm / foundation` monospace stack for the wordmark, navigation, dates, tags, and labels. The main introduction is text-only. The existing photo component is optional, not part of the main preview.
+
 | Token | Light | Dark | Role |
 | --- | --- | --- | --- |
 | `--paper` | `#f7f5ef` | `#1c211d` | Page background |
@@ -31,6 +33,12 @@ Highlight roles: `neutral`, `sage`, `sand`, `rose`, `blue`. They share foregroun
 | `EntryList` | items[] | h3 titles, optional dates/tags/links, native details disclosure |
 | `PhotoStack` | photos[] | Manual previous/next, arrow keys, wrapping, live count; no autoplay |
 | `SectionRenderer` | sections[] | Renders in supplied order; no inferred section order |
+| `StatusLine` | label, optional detail | Quiet current-focus line; decorative dot, no simulated live status |
+| `SectionIndex` | links[], optional label | Numbered native anchor navigation with an accessible nav label |
+| `FeatureLink` | label, href, description, optional category/detail | Text-first featured project or writing block; h3 anchor |
+| `Timeline` | items: Entry[] | Chronological-looking ordered list; display dates, role and summary |
+| `MarginNote` | optional label; content slot | Semantic aside with italic serif text and sand background |
+| `ContactPanel` | title, description, links[] | Serif invitation with ordinary links; no sending form |
 
 Use one Intro per final page. Title hierarchies must remain h1 → h2 → h3. Pass content through the schema before rendering. The typed low-level components assume their caller supplies validated values.
 
@@ -94,3 +102,5 @@ This is illustrative syntax, not a suggested biography or required section.
 ## Production additions later
 
 The foundation has metadata hooks but no real domain, social share image, sitemap, analytics, deployment account, CMS, contact delivery backend, video player, or blog routes. Add only what the owner's final structure requires. Canonical and navigation destinations must be verified against the real route map before release.
+
+New editorial components are standalone composition pieces. They reuse existing Link and Entry types, so no migration of the owner draft is required. They do not add required sections or prescribe a section order.

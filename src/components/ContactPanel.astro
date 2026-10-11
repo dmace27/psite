@@ -1,0 +1,12 @@
+---
+import type { Link } from '../content/schema';
+import TextLink from './TextLink.astro';
+interface Props { title: string; description: string; links: Link[]; }
+const { title, description, links } = Astro.props;
+---
+<aside class="contact-panel" aria-label={title}>
+  <span class="contact-symbol" aria-hidden="true">✳</span>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="link-group">{links.map((link) => <TextLink {...link} arrow />)}</div>
+</aside>

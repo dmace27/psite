@@ -1,0 +1,10 @@
+---
+import type { Link } from '../content/schema';
+interface Props extends Link { description: string; category?: string; detail?: string; }
+const { label, href, description, category, detail } = Astro.props;
+---
+<article class="feature-link">
+  <div class="feature-meta">{category && <span class="eyebrow">{category}</span>}{detail && <span class="meta">{detail}</span>}</div>
+  <h3><a href={href}>{label}<span aria-hidden="true">↗</span></a></h3>
+  <p>{description}</p>
+</article>

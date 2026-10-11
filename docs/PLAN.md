@@ -22,11 +22,11 @@ All eight reachable original references were inspected in a browser. The first U
 
 These are design observations, not instructions inherited from those pages. No biographies, logos, photos, code, or signature visuals were copied.
 
-## Proposed direction
+## Current direction — revised after owner feedback
 
-A personal notebook: warm paper, dark botanical ink, soft sage and sand, a restrained brown accent. Serif headings add character; system sans-serif keeps paragraphs comfortable; monospace marks dates and small labels. System font stacks avoid a remote font dependency. The owner can replace them later with licensed local font files.
+A personal notebook: warm paper, dark botanical ink, soft sage and sand, a restrained brown accent. Serif typography leads throughout headings, paragraphs, links, and controls. The monospace from `dm / foundation` is retained for the wordmark, navigation, dates, labels, and small details. System font stacks avoid a remote font dependency. The owner can replace them later with licensed local font files.
 
-Reading blocks should stay around 42rem wide. The outer canvas can grow to 68rem to support a side photo or visual. Start with 16px body text and approximately 1.65 line height. Use space and thin rules for grouping. The photo specimen has an intentionally tactile frame; standard entries stay simple.
+Reading blocks should stay around 42rem wide. The outer canvas stays at 68rem for the review gallery; the main introduction is text-only. Use an 18px serif body baseline and approximately 1.65 line height, with more compact component text where needed. Use space and thin rules for grouping. The former right-hand photo stack is removed from the main preview; the photo component remains optional for future content.
 
 Interaction is quiet: clear hover/focus states, a persisted theme preference, native expandable details, a manually controlled photo carousel. Content is visible immediately; there are no intro animations. Respect reduced motion. Every hover affordance must also work through keyboard/touch.
 
@@ -59,4 +59,8 @@ The review gallery demonstrates the currently useful pieces. Optional bespoke vi
 
 ## Decisions still open
 
-Final site map; final content; personal photography; whether the serif/paper direction is preferred; whether an expressive interactive visual is wanted; real social/contact links; domain and hosting. The Sofia spelling correction also remains an assumption.
+Final site map; final content; personal photography; the final balance of the approved serif/paper direction; whether an expressive interactive visual is wanted; real social/contact links; domain and hosting. The Sofia spelling correction also remains an assumption.
+
+## Second design study
+
+The owner liked the visual language (01) and reusable elements (02), disliked the main right-hand photo treatment, wanted a fuller commitment to serif type, and liked the monospace wordmark. The second study follows that feedback. New reusable components: StatusLine, SectionIndex, FeatureLink, Timeline, MarginNote, and ContactPanel. They are shown as content specimens in 02; no personal information or final site structure has been invented.

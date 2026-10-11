@@ -1,0 +1,9 @@
+---
+interface Props { label: string; detail?: string; }
+const { label, detail } = Astro.props;
+---
+<div class="status-note">
+  <span class="status-mark" aria-hidden="true"></span>
+  <span>{label}</span>
+  {detail && <span class="meta status-detail">{detail}</span>}
+</div>

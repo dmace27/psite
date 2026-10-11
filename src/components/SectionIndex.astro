@@ -1,0 +1,8 @@
+---
+import type { Link } from '../content/schema';
+interface Props { links: Link[]; label?: string; }
+const { links, label = 'On this page' } = Astro.props;
+---
+<nav class="section-index" aria-label={label}>
+  {links.map((link, index) => <a href={link.href}><span class="meta">{String(index + 1).padStart(2, '0')}</span><span>{link.label}</span><span class="index-arrow" aria-hidden="true">↗</span></a>)}
+</nav>

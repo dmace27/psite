@@ -1,0 +1,12 @@
+---
+import type { Entry } from '../content/schema';
+interface Props { items: Entry[]; }
+const { items } = Astro.props;
+---
+<!-- Dates are display labels; this timeline also works for milestones without dates. -->
+<ol class="timeline" role="list">
+  {items.map((item) => <li>
+    <div class="timeline-date"><span class="meta">{item.date ?? '—'}</span></div>
+    <div class="timeline-body"><h3>{item.title}</h3>{item.subtitle && <span class="timeline-role">{item.subtitle}</span>}<p>{item.summary}</p></div>
+  </li>)}
+</ol>
