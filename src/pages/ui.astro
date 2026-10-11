@@ -1,0 +1,47 @@
+---
+import Shell from '../layouts/Shell.astro';
+import Navigation from '../components/Navigation.astro';
+import Section from '../components/Section.astro';
+import RichText from '../components/RichText.astro';
+import PromptList from '../components/PromptList.astro';
+import ProjectList from '../components/ProjectList.astro';
+import EntryList from '../components/EntryList.astro';
+import Disclosure from '../components/Disclosure.astro';
+import EmptyState from '../components/EmptyState.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import StatusLine from '../components/StatusLine.astro';
+import { demoSite } from '../content/demo';
+const projects = demoSite.sections.flatMap((section) => section.id === 'projects' && section.type === 'entries' ? section.items : []);
+const roles = demoSite.sections.flatMap((section) => section.id === 'experience' && section.type === 'entries' ? section.items : []);
+const about = demoSite.sections.flatMap((section) => section.type === 'list' ? section.items : []);
+---
+<Shell title="ui / personal site framework" description="Reusable JetBrains Mono components for the personal site.">
+  <Navigation label="dm / framework" links={[{ label: 'home', href: '/' }, { label: 'type', href: '#type' }, { label: 'elements', href: '#elements' }]} />
+  <main id="main" class="ui-page">
+    <header class="intro"><h1>ui elements</h1><p class="muted">A small system. One font, two themes, and enough structure to let the content do the talking.</p><div class="link-group"><a href="/">← back to the layout preview</a></div></header>
+    <Section id="type" title="01 / typography">
+      <div class="type-specimen"><span class="spec-label">JetBrains Mono / locally hosted / variable</span><p class="type-large">your name</p><p class="type-medium">a section heading</p><p>Body text stays simple and readable. Long descriptions sit in a comfortable column, with room between ideas.</p><p class="meta">metadata / dates / small details</p></div>
+      <div class="token-strip" aria-label="Theme colours">{['paper', 'ink', 'muted', 'accent'].map((token) => <div><span class:list={['token-swatch', `token-${token}`]}></span><span class="meta">{token}</span></div>)}</div>
+    </Section>
+    <Section id="elements" title="02 / links & highlights">
+      <p><RichText spans={[{ text: 'Plain text, with ' }, { text: 'a quiet emphasis', tone: 'sand' }, { text: ' or ' }, { text: 'an inline link', href: '#lists', tone: 'blue' }, { text: '.' }]} /></p>
+      <div class="control-specimen"><Button href="#lists">primary action ↗</Button><Button href="#rows" variant="quiet">secondary action</Button><button class="button quiet" type="button" disabled>unavailable</button></div>
+      <div class="tag-group"><Badge>building</Badge><Badge tone="blue">learning</Badge><Badge tone="sand">exploring</Badge></div>
+    </Section>
+    <Section id="lists" title="03 / short lists">
+      <PromptList items={about} />
+      <div class="sample-gap"><StatusLine label="a current focus, in a single line" detail="optional detail" /></div>
+    </Section>
+    <Section id="rows" title="04 / projects & experience">
+      <span class="spec-label">project rows</span><ProjectList items={projects} />
+      <div class="sample-gap"><span class="spec-label">optional two-column layout</span><ProjectList items={projects} layout="grid" /></div>
+      <div class="sample-gap"><span class="spec-label">experience / dates / progressive detail</span><EntryList items={roles} /></div>
+    </Section>
+    <Section id="details" title="05 / details & empty states">
+      <Disclosure label="a little more context"><p>Useful detail lives behind a native disclosure. It opens with a click, Enter, or Space.</p></Disclosure>
+      <div class="sample-gap"><EmptyState message="nothing here yet." hint="A quiet empty state for a section you’ll add to later." /></div>
+    </Section>
+  </main>
+  <footer class="site-footer"><span class="meta">ui framework / 003</span><a href="#main">back to top ↑</a></footer>
+</Shell>

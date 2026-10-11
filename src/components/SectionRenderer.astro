@@ -2,6 +2,7 @@
 import type { ContentSection } from '../content/schema';
 import Section from './Section.astro';
 import RichText from './RichText.astro';
+import PromptList from './PromptList.astro';
 import EntryList from './EntryList.astro';
 import PhotoStack from './PhotoStack.astro';
 import TextLink from './TextLink.astro';
@@ -10,7 +11,7 @@ const { sections } = Astro.props;
 ---
 {sections.map((section) => <Section id={section.id} title={section.title} eyebrow={section.eyebrow}>
   {(section.type === 'prose' || section.type === 'contact') && section.paragraphs.map((spans) => <p><RichText spans={spans} /></p>)}
-  {section.type === 'list' && <ul class="prose-list">{section.items.map((spans) => <li><RichText spans={spans} /></li>)}</ul>}
+  {section.type === 'list' && <PromptList items={section.items} />}
   {section.type === 'entries' && <EntryList items={section.items} />}
   {section.type === 'notes' && <ul class="note-list" role="list">{section.items.map((note) => <li><TextLink label={note.title} href={note.href} arrow />{note.date && <span class="meta">{note.date}</span>}</li>)}</ul>}
   {section.type === 'photos' && <PhotoStack photos={section.photos} />}

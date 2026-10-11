@@ -1,0 +1,9 @@
+---
+interface Props { label: string; open?: boolean; }
+const { label, open = false } = Astro.props;
+---
+<!-- Native disclosure supports keyboard interaction without additional JavaScript. -->
+<details class="disclosure" open={open}>
+  <summary><span class="disclosure-mark" aria-hidden="true">+</span>{label}</summary>
+  <div class="disclosure-body"><slot /></div>
+</details>

@@ -1,81 +1,31 @@
 ---
 import Shell from '../layouts/Shell.astro';
 import Navigation from '../components/Navigation.astro';
-import StatusLine from '../components/StatusLine.astro';
-import MarginNote from '../components/MarginNote.astro';
-import FeatureLink from '../components/FeatureLink.astro';
-import Timeline from '../components/Timeline.astro';
-import SectionIndex from '../components/SectionIndex.astro';
-import ContactPanel from '../components/ContactPanel.astro';
 import Intro from '../components/Intro.astro';
+import Section from '../components/Section.astro';
+import PromptList from '../components/PromptList.astro';
+import ProjectList from '../components/ProjectList.astro';
 import SectionRenderer from '../components/SectionRenderer.astro';
-import Button from '../components/Button.astro';
-import Badge from '../components/Badge.astro';
+import Disclosure from '../components/Disclosure.astro';
 import { demoSite, references } from '../content/demo';
 ---
-<Shell title="Personal site / design foundation" description="A design direction and reusable component library for a future personal website.">
-  <Navigation links={[{ label: 'Language', href: '#language' }, { label: 'Elements', href: '#elements' }, { label: 'Next', href: '#next' }]} />
+<Shell {...demoSite.metadata}>
+  <Navigation label="dm / preview" links={[{ label: 'projects', href: '#projects' }, { label: 'experience', href: '#experience' }, { label: 'ui', href: '/ui' }]} />
   <main id="main">
-    <section class="gallery-hero" aria-labelledby="gallery-title">
-      <div>
-        <span class="eyebrow">Personal site · design study 002</span>
-        <h1 id="gallery-title">Your work.<br />Your words<span class="accent-dot">.</span></h1>
-        <p>A personal page, built around the things you do and the way you think. Warm paper, serif type, and a few details that make it yours.</p>
-        <div class="control-specimen"><Button href="#elements">Explore the elements <span aria-hidden="true">↓</span></Button><a class="text-link" href="#references">The inspiration ↗</a></div>
-        <div class="hero-footnote"><span class="meta">002 / TYPE, WORDS & SMALL DETAILS</span></div>
-      </div>
-    </section>
-    <section class="gallery-block" id="language" aria-labelledby="language-title">
-      <header><span class="eyebrow">01 / the language</span><h2 id="language-title">Warm. Clear. Personal.</h2><p>A small palette, generous space, and typography that lets the words lead.</p></header>
-      <div>
-        <div class="swatches">{['Paper', 'Ink', 'Sage', 'Sand', 'Accent'].map((name) => <div><div class:list={['swatch', `swatch-${name.toLowerCase()}`]}></div><span class="meta">{name}</span></div>)}</div>
-        <div class="type-specimen"><span class="spec-label">SERIF / ALL THE WAY THROUGH</span><h3>Good things take their own shape.</h3><p>Serif for the story, the headings, and the links. The same monospace as dm / foundation for dates, small labels, and little bits of navigation.</p></div>
-        <div class="control-specimen"><Badge tone="sage">A current focus</Badge><Badge tone="sand">A small win</Badge><Badge tone="rose">An interest</Badge><Badge tone="blue">A connection</Badge></div>
-        <div class="control-specimen"><Button href="#next">Primary link ↗</Button><Button href="#references" variant="quiet">Secondary link ↗</Button><button class="button quiet" type="button" disabled>Disabled state</button></div>
-      </div>
-    </section>
-    <section class="gallery-block" id="elements" aria-labelledby="elements-title">
-      <header><span class="eyebrow">02 / the elements</span><h2 id="elements-title">Words, with a little structure.</h2><p>The original elements, plus more ways to present your work, thoughts, and small asides.</p></header>
-      <div>
-        <div class="component-sample"><span class="spec-label">INTRO / INLINE HIGHLIGHTS / SOCIAL LINKS</span><Intro identity={demoSite.identity} headingLevel="h3" /></div>
-        {demoSite.sections.map((section) => <div class="component-sample"><span class="spec-label">{section.type.toUpperCase()} / CONTENT SPECIMEN</span><SectionRenderer sections={[section]} /></div>)}
-        <div class="component-sample">
-          <span class="spec-label">STATUS / A QUIET CURRENT FOCUS</span>
-          <StatusLine label="Currently exploring something new." detail="Your update goes here" />
-        </div>
-        <div class="component-sample">
-          <span class="spec-label">INDEX / NUMBERED SECTION LINKS</span>
-          <SectionIndex links={[{ label: 'The visual language', href: '#language' }, { label: 'The small elements', href: '#elements' }, { label: 'What comes next', href: '#next' }]} label="Specimen section index" />
-        </div>
-        <div class="component-sample">
-          <span class="spec-label">FEATURE / A PROJECT OR A PIECE OF WRITING</span>
-          <div class="feature-grid">
-            <FeatureLink label="An idea worth following." href="#next" category="Selected project" detail="Year" description="A little more room for one thing you made. The title leads; a short description gives it context." />
-            <FeatureLink label="A thought, written down." href="#next" category="From the notebook" detail="A short read" description="The same element can introduce a piece of writing, without needing a thumbnail or an image." />
-          </div>
-        </div>
-        <div class="component-sample">
-          <span class="spec-label">TIMELINE / A FEW CHAPTERS</span>
-          <Timeline items={demoSite.sections.flatMap((section) => section.type === 'entries' ? section.items : [])} />
-        </div>
-        <div class="component-sample">
-          <span class="spec-label">MARGIN NOTE / A PERSONAL ASIDE</span>
-          <MarginNote label="Outside the usual"><p>A small detail about what you’re reading, learning, or finding interesting. There’s room here for things that don’t fit on a résumé.</p></MarginNote>
-        </div>
-        <div class="component-sample">
-          <span class="spec-label">CONTACT / AN OPEN ENDING</span>
-          <ContactPanel title="A conversation starts somewhere." description="A short invitation, in your own voice. Your real email and social links can live here when you’re ready." links={[{ label: 'Contact link specimen', href: '#next' }, { label: 'Another way to connect', href: '#next' }]} />
-        </div>
-      </div>
-    </section>
-    <section class="gallery-block" id="references" aria-labelledby="references-title">
-      <header><span class="eyebrow">03 / the references</span><h2 id="references-title">A shared sensibility.</h2><p>Ideas drawn from the sites in boom.md. Their content and assets stay their own.</p></header>
-      <ul class="source-list">{references.map((reference) => <li><a href={reference.url}>{reference.name} ↗</a><span class="meta">{reference.note}</span></li>)}</ul>
-    </section>
-    <section class="gallery-block" id="next" aria-labelledby="next-title">
-      <header><span class="eyebrow">04 / what comes next</span><h2 id="next-title">Make it yours.</h2><p>The structure is deliberately open.</p></header>
-      <div><p>When you’re ready, send the sections you want, their order, and the content that belongs in each.</p><ol class="next-steps"><li>Your name, introduction, and links.</li><li>Your preferred sections and page structure.</li><li>Projects, experience, writing, photos, or anything else.</li><li>Any details you want to feel especially like you.</li></ol><p class="meta" style="margin-top: 1.5rem">Local design preview · no personal claims · no external services</p></div>
-    </section>
+    <Intro identity={demoSite.identity} />
+    {demoSite.sections.map((section) => section.type === 'list' ?
+      <Section id={section.id} title={section.title}><PromptList items={section.items} /></Section> :
+      section.id === 'projects' && section.type === 'entries' ?
+      <Section id={section.id} title={section.title}><ProjectList items={section.items} /></Section> :
+      <SectionRenderer sections={[section]} />
+    )}
+    <Section id="framework" title="the foundation">
+      <p class="muted">This is a layout preview with placeholder content. The actual sections and words come from you.</p>
+      <div class="link-group"><a href="/ui">explore the ui elements <span aria-hidden="true">↗</span></a></div>
+      <Disclosure label="design references">
+        <ul class="reference-list">{references.map((reference) => <li><a href={reference.url}>{reference.name}</a><p class="meta">{reference.note}</p></li>)}</ul>
+      </Disclosure>
+    </Section>
   </main>
-  <footer class="site-footer"><span class="meta">PERSONAL SITE / FOUNDATION V0.2</span><span class="meta">A starting point, with room to grow. ✳</span></footer>
+  <footer class="site-footer"><span class="meta">framework / 003</span><a href="#main">back to top ↑</a></footer>
 </Shell>

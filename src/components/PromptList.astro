@@ -1,0 +1,10 @@
+---
+import type { RichParagraph } from '../content/schema';
+import RichText from './RichText.astro';
+interface Props { items: RichParagraph[]; marker?: '>' | '-'; }
+const { items, marker = '>' } = Astro.props;
+---
+<!-- A real list retains its semantics; the terminal-style marker is decorative. -->
+<ul class="prompt-list" role="list">
+  {items.map((spans) => <li><span class="prompt-marker" aria-hidden="true">{marker}</span><div><RichText spans={spans} /></div></li>)}
+</ul>

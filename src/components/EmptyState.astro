@@ -1,0 +1,5 @@
+---
+interface Props { message: string; hint?: string; }
+const { message, hint } = Astro.props;
+---
+<div class="empty-state"><p>{message}</p>{hint && <p class="meta">{hint}</p>}</div>

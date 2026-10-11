@@ -1,24 +1,24 @@
-# Foundation verification — 6 October 2026
+# Framework verification — 11 October 2026
 
-- Six content-contract tests pass: empty draft, rich-text whitespace, anchor relationships, link protocols, photo requirements, section variant requirements.
-- Astro/TypeScript reports zero errors, warnings, or hints.
-- Static production build succeeds.
+The third study replaces the earlier serif direction with the JetBrains Mono framework.
+
+## Automated checks
+
+- Six content-contract tests pass: empty draft, rich-text whitespace, anchor relationships, link protocols, photo requirements and section variant requirements.
+- Astro/TypeScript reports zero errors, warnings or hints across 29 files.
+- Static production build succeeds for `/` and `/ui`.
 - `git diff --check` passes.
-- Browser review at the default 1280px desktop viewport and a 390px phone viewport.
-- No horizontal document overflow at either checked width.
-- Theme toggle changes its accessible label and preserves a dark choice across reload.
-- Next-photo control updates the visible image and live count.
-- ArrowLeft on the photo region wraps from the first to the third frame.
-- Native entry disclosure reveals its supplemental details.
-- Gallery heading structure has one h1; the intro specimen uses h3.
 
-These checks cover the foundation and its demo content. The eventual website still needs verification using the owner's real copy, media, routes, and links. No deployment occurred.
+## Browser checks
 
-## Second study verification — 10 October 2026
+- Inspected both reference sites and verified their computed font families as JetBrains Mono.
+- Local preview uses the JetBrains Mono Variable stack, and `document.fonts.check` confirms the font is loaded.
+- Reviewed the personal-page sample and UI library at desktop widths and explicit 390px phone width.
+- At phone width both routes have 390px document width, with no horizontal overflow.
+- The two-column project specimen becomes a single 350px column at phone width.
+- A native disclosure opens using Enter on its summary.
+- Light/dark toggle updates its accessible label; dark preference survives navigation between `/ui` and `/`.
+- Demo project and note links point to the root foundation anchor from either route.
+- The local development server was stopped and restarted after the dependency change.
 
-- Astro/TypeScript: zero errors, warnings, or hints across 24 files.
-- Static production build succeeds.
-- Browser checks at 1280px desktop and 390px phone widths: no horizontal document overflow.
-- Main preview contains no photo stack and body computed font uses the serif stack.
-- New status, index, feature, timeline, margin-note, and contact specimens reviewed in the gallery.
-- Theme toggle and light/dark presentation checked; mobile featured blocks stack vertically.
+The real website content, final routes and external links remain pending. No deployment occurred.

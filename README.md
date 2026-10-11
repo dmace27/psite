@@ -1,6 +1,6 @@
 # Personal site foundation
 
-An Astro component library and design review page based on the references in `boom.md`. The real website structure and content are intentionally pending.
+An Astro UI framework using locally hosted JetBrains Mono, based on Matthew Hamilton and David Chen. The real website structure and content are intentionally pending.
 
 ## Local commands
 
@@ -24,6 +24,6 @@ Development runs at `http://127.0.0.1:4321`. `verify` runs content-contract test
 - [Isolated demo content](src/content/demo.ts)
 - [Shared CSS tokens](src/styles/global.css)
 
-`src/pages/index.astro` is the component review gallery. Once actual content is supplied, compose the final pages with `Intro`, `Navigation`, and `SectionRenderer`; section order comes from the supplied data. `site.ts` is intentionally not rendered yet. Preview pages are marked noindex.
+`src/pages/index.astro` is the sample personal-site composition; `src/pages/ui.astro` is the component review gallery. Once actual content is supplied, compose the final pages with `Intro`, `Navigation`, and `SectionRenderer`; section order comes from the supplied data. `site.ts` is intentionally not rendered yet. Preview pages are marked noindex.
 
-The gallery uses original SVG illustrations as clearly labelled media placeholders. It includes no copied reference imagery, real personal claims, analytics, or external sending services. The first inspiration URL appears misspelled; the plan records the likely Sofia Bodnar correction.
+The current preview is text-led and uses placeholder copy. It includes no copied reference imagery, real personal claims, analytics, or external sending services.

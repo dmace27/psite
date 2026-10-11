@@ -1,13 +1,13 @@
 ---
 import type { Link } from '../content/schema';
 interface Props { links: Link[]; label?: string; }
-const { links, label = 'dm / foundation' } = Astro.props;
+const { links, label = 'dm / framework' } = Astro.props;
 ---
 <header class="site-header">
-  <a class="wordmark" href="#main" aria-label="Back to main content">{label}<span aria-hidden="true">✳</span></a>
+  <a class="wordmark" href="#main" aria-label="Back to main content">{label}</a>
   <div class="header-controls">
     {links.length > 0 && <nav aria-label="Primary navigation">{links.map((link) => <a href={link.href}>{link.label}</a>)}</nav>}
-    <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" hidden><span aria-hidden="true">◐</span></button>
+    <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" hidden><span aria-hidden="true">[◐]</span></button>
   </div>
 </header>
 <script>
