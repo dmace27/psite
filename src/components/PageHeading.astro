@@ -1,0 +1,9 @@
+---
+interface Props { title: string; description?: string; placeholder?: boolean; }
+const { title, description, placeholder = false } = Astro.props;
+---
+<header class="page-heading">
+  <h1>{title}</h1>
+  {description && <p class="muted">{description}</p>}
+  {placeholder && <span class="meta placeholder-label">layout preview / content to come</span>}
+</header>

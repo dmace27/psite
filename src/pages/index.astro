@@ -1,31 +1,12 @@
 ---
-import Shell from '../layouts/Shell.astro';
-import Navigation from '../components/Navigation.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 import Intro from '../components/Intro.astro';
-import Section from '../components/Section.astro';
-import PromptList from '../components/PromptList.astro';
-import ProjectList from '../components/ProjectList.astro';
 import SectionRenderer from '../components/SectionRenderer.astro';
-import Disclosure from '../components/Disclosure.astro';
-import { demoSite, references } from '../content/demo';
+import { siteContent } from '../content/site';
 ---
-<Shell {...demoSite.metadata}>
-  <Navigation label="dm / preview" links={[{ label: 'projects', href: '#projects' }, { label: 'experience', href: '#experience' }, { label: 'ui', href: '/ui' }]} />
-  <main id="main">
-    <Intro identity={demoSite.identity} />
-    {demoSite.sections.map((section) => section.type === 'list' ?
-      <Section id={section.id} title={section.title}><PromptList items={section.items} /></Section> :
-      section.id === 'projects' && section.type === 'entries' ?
-      <Section id={section.id} title={section.title}><ProjectList items={section.items} /></Section> :
-      <SectionRenderer sections={[section]} />
-    )}
-    <Section id="framework" title="the foundation">
-      <p class="muted">This is a layout preview with placeholder content. The actual sections and words come from you.</p>
-      <div class="link-group"><a href="/ui">explore the ui elements <span aria-hidden="true">↗</span></a></div>
-      <Disclosure label="design references">
-        <ul class="reference-list">{references.map((reference) => <li><a href={reference.url}>{reference.name}</a><p class="meta">{reference.note}</p></li>)}</ul>
-      </Disclosure>
-    </Section>
-  </main>
-  <footer class="site-footer"><span class="meta">framework / 003</span><a href="#main">back to top ↑</a></footer>
-</Shell>
+<SiteLayout title={`${siteContent.identity.name} / home`}>
+  <Intro identity={siteContent.identity} />
+  <span class="meta">layout preview / content to come</span>
+  <SectionRenderer sections={siteContent.sections} />
+  <div class="home-explore"><a href="/projects">projects ↗</a><a href="/writing">writing ↗</a><a href="/hobbies">hobbies ↗</a></div>
+</SiteLayout>

@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import HobbySection from '../components/HobbySection.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { hobbies } from '../content/hobbies';
+import { siteContent } from '../content/site';
+---
+<SiteLayout title={`hobbies / ${siteContent.identity.name}`} description="Interests, routines, and the things enjoyed outside of work.">
+  <PageHeading title="hobbies" description="A little more about life outside of work." placeholder={hobbies.some((hobby) => hobby.placeholder)} />
+  {hobbies.length > 1 && <nav class="hobby-index" aria-label="Hobbies on this page">{hobbies.map((hobby) => <a href={`#${hobby.id}`}>{hobby.title}</a>)}</nav>}
+  {hobbies.length ? hobbies.map((hobby) => <HobbySection hobby={hobby} />) : <EmptyState message="more interests to come." />}
+</SiteLayout>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+  <rect width="960" height="640" fill="#edeeef"/>
+  <rect x="40" y="40" width="880" height="560" fill="none" stroke="#c3c7ce" stroke-dasharray="6 8"/>
+  <path d="M452 265h56v48h-56zM460 299l12-12 8 8 8-12 12 16" fill="none" stroke="#747c89" stroke-width="2"/>
+  <text x="480" y="365" text-anchor="middle" font-family="monospace" font-size="18" fill="#525b6a">your photo or artwork</text>
+  <text x="480" y="398" text-anchor="middle" font-family="monospace" font-size="13" fill="#747c89">media placeholder</text>
+</svg>

@@ -1,13 +1,13 @@
 ---
 import type { Entry } from '../content/schema';
 import TextLink from './TextLink.astro';
-interface Props { items: Entry[]; layout?: 'rows' | 'grid'; }
-const { items, layout = 'rows' } = Astro.props;
+interface Props { items: Entry[]; layout?: 'rows' | 'grid'; headingLevel?: 'h2' | 'h3'; }
+const { items, layout = 'rows', headingLevel: Heading = 'h3' } = Astro.props;
 ---
 <ul class:list={['project-list', `project-${layout}`]} role="list">
   {items.map((item, index) => <li>
     <article class="project-item">
-      <div class="project-title"><span class="project-number meta" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3>{item.date && <span class="meta project-date">{item.date}</span>}</div>
+      <div class="project-title"><span class="project-number meta" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><Heading class="project-item-heading">{item.title}</Heading>{item.date && <span class="meta project-date">{item.date}</span>}</div>
       <p>{item.summary}</p>
       {item.tags?.length && <p class="project-tags meta">{item.tags.join(' / ')}</p>}
       {item.links?.length && <div class="link-group">{item.links.map((link) => <TextLink {...link} arrow />)}</div>}

@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import ProjectList from '../components/ProjectList.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { projects, siteContent } from '../content/site';
+---
+<SiteLayout title={`projects / ${siteContent.identity.name}`} description="Projects, experiments, and things built along the way.">
+  <PageHeading title="projects" description="Things built, explored, and learned along the way." placeholder />
+  {projects.length ? <ProjectList items={projects} headingLevel="h2" /> : <EmptyState message="no projects here yet." />}
+</SiteLayout>

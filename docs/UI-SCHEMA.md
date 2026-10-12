@@ -72,3 +72,21 @@ The new components reuse existing data types without prescribing required sectio
 ## Preview routes and interactions
 
 `/` demonstrates a possible personal page; `/ui` demonstrates the component API. Samples point to working local routes or anchors and are labelled as placeholders. Theme preference persists when storage is available; controls hide when JavaScript is unavailable. Details and links remain functional without JavaScript. Reduced-motion preference disables smooth scrolling. The final real-content route map must be verified before publication.
+
+## Three-page site structure
+
+The main route map is now home/about `/`, projects `/projects`, writing `/writing`, and contained article pages `/writing/[slug]`. `SiteLayout` shares the shell/navigation/footer. `PageHeading` supplies the projects and writing titles. `ArticleList` renders entries from the Markdown collection. Writing's metadata schema requires title and description; publishedAt, order, draft, and placeholder control optional publication metadata and visibility. The article template renders Markdown in a 42rem column. Navigation marks exact page matches with `aria-current="page"` and marks writing as the current section on article routes.
+
+ProjectList accepts optional headingLevel so projects directly below a page h1 use h2, while gallery specimens inside sections use h3. See `docs/CONTENT.md` for authoring and filenames.
+
+## Hobbies components
+
+The separate `/hobbies` page extends the primary navigation. Its content comes from `src/content/hobbies.ts`, validated by `hobbies-schema.ts`.
+
+| Component | Input | Behaviour |
+| --- | --- | --- |
+| HobbySection | hobby: Hobby | Accessible h2 section, rich paragraphs, optional links/media/updates |
+| HobbyMedia | photos: Photo[] | One full-width image or a responsive multi-photo gallery, alt text and captions |
+| HobbyUpdates | updates: Hobby['updates'] | Authored recent-activity notes with optional date and link |
+
+Hobby = `{ id, title, paragraphs, photos?, links?, updates?, placeholder? }`. An update has `{ title, detail, date?, href? }`. Optional arrays default to empty. IDs are unique and cannot use the main landmark ID. Sections render in their authored order, and the page index derives from those same IDs. On phones navigation wraps into a second row and multi-photo media stacks vertically.

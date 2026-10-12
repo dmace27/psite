@@ -17,12 +17,11 @@ One locally hosted font: **JetBrains Mono Variable**, installed through `@fontso
 
 Neutral off-white and charcoal replace the warm brown/green palette. A muted blue marks links, focus rings and list prompts. Quiet bracketed inline highlights supply emphasis. Borders belong to small structural separators rather than decorative panels. Text is immediately visible, without intro animation or decorative photo treatments.
 
-## Review routes
+## Current page structure
 
-- `/`: sample personal-site composition. Name and introduction, about prompts, selected project rows, an experience disclosure, notes, then a small foundation note. Every entry is placeholder content.
-- `/ui`: dedicated component review. Typography, theme tokens, links/highlights, controls, prompt lists, project rows and two-column variants, experience blocks, native disclosure and empty states.
+The owner requested three pages: home/about (`/`), projects (`/projects`), and writing (`/writing`). The writing index links to individual article pages at `/writing/[slug]`, following the index-to-article pattern reviewed on Nathan Yan's essays page and Eric Chen's notes page. All main pages share navigation and active section styling. Articles have a narrow reading column and return links.
 
-These sample sections demonstrate capabilities, not a locked site map. `src/content/site.ts` remains the owner's empty draft.
+`src/content/site.ts` now contains explicitly labelled layout placeholders for home and projects. Markdown files in `src/content/writing/` supply standalone writing pages and index entries automatically. `/ui` remains as a separate component reference outside the main navigation. See `docs/CONTENT.md` for authoring instructions.
 
 ## Reusable framework
 
@@ -39,3 +38,7 @@ Themes persist locally. Lists use semantic HTML with decorative prompt markers. 
 5. Configure the real domain, canonical URLs, social metadata and indexing before requested publication.
 
 No hosting setup or deployment is part of this framework restart.
+
+## Hobbies page
+
+The owner requested a separate page for interests outside computer science, with reusable content sections similar to [Nick Kim's hobbies](https://nickkim.dev/#hobbies). Nick's gym/activity and guitar/media blocks informed optional descriptions, photos, personal profile links and recent updates. The new `/hobbies` page preserves the established JetBrains Mono design and uses generic labelled templates, not Nick's interests or content. `HobbySection`, `HobbyMedia`, and `HobbyUpdates` separate the reusable presentation from `src/content/hobbies.ts`. Actual hobby content remains pending.

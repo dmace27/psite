@@ -1,0 +1,19 @@
+---
+import type { Hobby } from '../content/hobbies-schema';
+import RichText from './RichText.astro';
+import TextLink from './TextLink.astro';
+import HobbyMedia from './HobbyMedia.astro';
+import HobbyUpdates from './HobbyUpdates.astro';
+interface Props { hobby: Hobby; }
+const { hobby } = Astro.props;
+---
+<section class="hobby-section" id={hobby.id} aria-labelledby={`${hobby.id}-heading`}>
+  <header class="hobby-heading">
+    <h2 id={`${hobby.id}-heading`}>{hobby.title}</h2>
+    {hobby.placeholder && <span class="meta">hobby template / replace with your content</span>}
+  </header>
+  <div class="hobby-story">{hobby.paragraphs.map((spans) => <p><RichText spans={spans} /></p>)}</div>
+  {hobby.links.length > 0 && <div class="link-group">{hobby.links.map((link) => <TextLink {...link} arrow />)}</div>}
+  {hobby.photos.length > 0 && <HobbyMedia photos={hobby.photos} />}
+  {hobby.updates.length > 0 && <HobbyUpdates updates={hobby.updates} />}
+</section>

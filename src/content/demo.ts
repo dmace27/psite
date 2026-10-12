@@ -16,15 +16,15 @@ export const demoSite = siteSchema.parse({
       [{ text: 'a few interests, outside of work.' }],
     ] },
     { id: 'projects', type: 'entries', title: 'selected projects', items: [
-      { id: 'project-one', title: 'project-one', summary: 'A short explanation of the problem you solved and the thing you built. Clear, specific, and in your own words.', date: 'year', tags: ['tool', 'experiment'], links: [{ label: 'details', href: '/#framework' }] },
-      { id: 'project-two', title: 'another-project', summary: 'Another thing you made. The description carries the story; a screenshot can be added later if it helps.', date: 'year', links: [{ label: 'details', href: '/#framework' }] },
+      { id: 'project-one', title: 'project-one', summary: 'A short explanation of the problem you solved and the thing you built. Clear, specific, and in your own words.', date: 'year', tags: ['tool', 'experiment'], links: [{ label: 'details', href: '/projects' }] },
+      { id: 'project-two', title: 'another-project', summary: 'Another thing you made. The description carries the story; a screenshot can be added later if it helps.', date: 'year', links: [{ label: 'details', href: '/projects' }] },
     ] },
     { id: 'experience', type: 'entries', title: 'experience', items: [
       { id: 'role-one', title: 'organisation', subtitle: 'your role', date: 'year — present', summary: 'One sentence about your contribution, with a little context.', details: ['What you worked on, why it mattered, and what you learned.', 'More detail belongs here when there is something useful to say.'] },
     ] },
     { id: 'notes', type: 'notes', title: 'notes', items: [
-      { title: 'a thought worth keeping', date: 'date', href: '/#framework' },
-      { title: 'something you learned along the way', date: 'date', href: '/#framework' },
+      { title: 'a thought worth keeping', date: 'date', href: '/projects' },
+      { title: 'something you learned along the way', date: 'date', href: '/projects' },
     ] },
   ],
 });

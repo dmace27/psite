@@ -1,0 +1,15 @@
+---
+import type { Hobby } from '../content/hobbies-schema';
+interface Props { updates: Hobby['updates']; }
+const { updates } = Astro.props;
+---
+<!-- Updates are authored notes, not a simulated feed or connected service. -->
+<ul class="hobby-updates" role="list">
+  {updates.map((update) => <li>
+    <div class="hobby-update-top">
+      <h3>{update.href ? <a href={update.href}>{update.title}<span aria-hidden="true"> ↗</span></a> : update.title}</h3>
+      {update.date && <span class="meta">{update.date}</span>}
+    </div>
+    <p>{update.detail}</p>
+  </li>)}
+</ul>

@@ -22,3 +22,20 @@ The third study replaces the earlier serif direction with the JetBrains Mono fra
 - The local development server was stopped and restarted after the dependency change.
 
 The real website content, final routes and external links remain pending. No deployment occurred.
+
+## Three-page structure verification
+
+- Home/about, projects, and writing routes build successfully, along with two individual Markdown article pages and the retained UI route.
+- Existing six content tests pass; Astro/TypeScript reports zero errors, warnings, or hints across 38 files.
+- Checked all six generated pages: internal anchor/route links resolve and each page has one h1.
+- Browser navigation verified home → projects → writing → first article → second article.
+- At a 390px phone width, the first article has no horizontal document overflow; writing remains the active navigation section.
+- Shared dark preference persists between routes. The local server was refreshed to load the new collection.
+
+## Hobbies page verification
+
+- Eight tests pass, including hobby anchor uniqueness and optional media/activity requirements.
+- Astro/TypeScript: zero errors, warnings, or hints across 45 files.
+- Static build includes `/hobbies`; all seven built pages have valid internal routes and section anchors.
+- Browser checked desktop and 390px phone layout; hobbies is the active primary navigation item and no horizontal overflow occurs at phone width.
+- Section-index link reaches the creative-hobby anchor. Placeholder media has dimensions, alt text and a caption.

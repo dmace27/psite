@@ -1,0 +1,11 @@
+---
+import type { Photo } from '../content/schema';
+interface Props { photos: Photo[]; }
+const { photos } = Astro.props;
+---
+<div class:list={['hobby-media', photos.length > 1 && 'hobby-media-grid']}>
+  {photos.map((photo) => <figure>
+    <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+    <figcaption class="meta">{photo.caption}</figcaption>
+  </figure>)}
+</div>

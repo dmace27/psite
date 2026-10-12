@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { siteContent } from '../../content/site';
+import { getWriting } from '../../lib/writing';
+const articles = await getWriting();
+---
+<SiteLayout title={`writing / ${siteContent.identity.name}`} description="Essays, notes, and ideas worth keeping.">
+  <PageHeading title="writing" description="Essays, notes, and ideas worth keeping." placeholder />
+  {articles.length ? <ArticleList articles={articles} /> : <EmptyState message="nothing published yet." />}
+</SiteLayout>

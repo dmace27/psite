@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { siteContent } from '../../content/site';
+import { getWriting, formatArticleDate } from '../../lib/writing';
+
+// Static routes and the index always use the same visible article collection.
+export async function getStaticPaths() {
+  const articles = await getWriting();
+  return articles.map((article, index) => ({
+    params: { slug: article.id },
+    props: { article, next: articles[index + 1] ?? null },
+  }));
+}
+interface Props { article: CollectionEntry<'writing'>; next: CollectionEntry<'writing'> | null; }
+const { article, next } = Astro.props;
+const { Content } = await render(article);
+---
+<SiteLayout title={`${article.data.title} / ${siteContent.identity.name}`} description={article.data.description}>
+  <article class="reading-page">
+    <a class="article-back" href="/writing">← all writing</a>
+    <header class="article-heading">
+      {article.data.placeholder && <span class="meta placeholder-label">placeholder article / content to come</span>}
+      <h1>{article.data.title}</h1>
+      {article.data.publishedAt && <time class="meta" datetime={article.data.publishedAt}>{formatArticleDate(article.data.publishedAt)}</time>}
+      <p class="muted">{article.data.description}</p>
+    </header>
+    <div class="article-body"><Content /></div>
+    <nav class="article-pagination" aria-label="More writing">
+      <a href="/writing">← all writing</a>
+      {next && <a href={`/writing/${next.id}`}>next: {next.data.title} →</a>}
+    </nav>
+  </article>
+</SiteLayout>

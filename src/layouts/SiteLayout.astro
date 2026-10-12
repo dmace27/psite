@@ -1,0 +1,12 @@
+---
+import Shell from './Shell.astro';
+import Navigation from '../components/Navigation.astro';
+import { siteContent } from '../content/site';
+interface Props { title: string; description?: string; }
+const { title, description = siteContent.metadata.description } = Astro.props;
+---
+<Shell title={title} description={description}>
+  <Navigation label={siteContent.identity.name} links={siteContent.navigation} homeHref="/" />
+  <main id="main"><slot /></main>
+  <footer class="site-footer"><span class="meta">{siteContent.identity.name}</span><a href="#main">back to top ↑</a></footer>
+</Shell>

@@ -118,7 +118,7 @@ img { display: block; max-width: 100%; height: auto; }
 .project-rows > li + li { margin-top: 1.6rem; }
 .project-item { min-width: 0; }
 .project-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: .65rem; }
-.project-title h3 { flex: 1; }
+.project-title .project-item-heading { flex: 1; font-size: .875rem; font-weight: 500; line-height: 1.6; }
 .project-number { color: var(--accent); }
 .project-date { margin-left: auto; }
 .project-item > p { color: var(--muted); margin-top: .45rem; }
@@ -218,4 +218,72 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
 @media print {
   .theme-toggle, .photo-controls { display: none !important; }
   .page-shell { max-width: none; }
+}
+
+/* Main pages share one header and footer; active navigation follows nested articles. */
+.header-controls nav a[aria-current] { color: var(--ink); text-decoration: underline; }
+.page-heading { padding: 3.5rem 0 2rem; }
+.page-heading h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+.page-heading > p { margin-top: 1rem; max-width: var(--reading-width); }
+.placeholder-label { display: block; margin-top: .9rem; }
+.home-explore { display: flex; gap: 1.5rem; margin-top: 2.5rem; font-size: .8125rem; }
+.article-list { list-style: none; padding: 0; margin: 0; }
+.article-list li { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+.article-list li:first-child { padding-top: .4rem; }
+.article-list-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.article-list h2 { font-size: .9375rem; }
+.article-list time { flex-shrink: 0; }
+.article-list p { margin: .65rem 0 .35rem; font-size: .8125rem; }
+
+/* The article column is deliberately narrower than the page canvas. */
+.reading-page { max-width: var(--reading-width); margin: 0 auto; padding-top: 3rem; }
+.article-back { font-size: .75rem; color: var(--muted); }
+.article-heading { padding: 1.75rem 0 2rem; border-bottom: 1px solid var(--line); }
+.article-heading .placeholder-label { margin: 0 0 1rem; }
+.article-heading h1 { font-size: clamp(1.7rem, 4vw, 2.35rem); line-height: 1.35; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.article-heading time { display: block; margin-top: 1rem; }
+.article-heading p { margin-top: 1rem; }
+.article-body { padding-top: 2rem; font-size: .9375rem; line-height: 1.95; overflow-wrap: anywhere; }
+.article-body p + p { margin-top: 1.25rem; }
+.article-body h2 { font-size: 1.1rem; margin: 2.5rem 0 1rem; }
+.article-body h3 { font-size: 1rem; margin: 2rem 0 .8rem; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin: 1.25rem 0; }
+.article-body li + li { margin-top: .5rem; }
+.article-body blockquote { margin: 1.5rem 0; padding: .25rem 0 .25rem 1.2rem; border-left: 2px solid var(--line); color: var(--muted); }
+.article-body code { font: .85em var(--mono); background: var(--surface); padding: .1em .3em; }
+.article-body pre { max-width: 100%; overflow-x: auto; padding: 1rem; margin: 1.5rem 0; border: 1px solid var(--line); }
+.article-body pre code { background: transparent; padding: 0; }
+.article-body img { margin: 1.5rem auto; }
+.article-body hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.article-pagination { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .75rem; }
+@media (max-width: 640px) {
+  .page-heading { padding-top: 2.5rem; }
+  .article-list-top { flex-direction: column; gap: .3rem; }
+  .reading-page { padding-top: 2rem; }
+  .article-pagination { flex-direction: column; }
+}
+
+/* Hobbies read as personal sections, with optional media and authored activity notes. */
+.hobby-index { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; padding-bottom: 1.75rem; font-size: .75rem; color: var(--muted); }
+.hobby-section { padding: 2.5rem 0; border-top: 1px solid var(--line); }
+.hobby-heading { margin-bottom: 1.25rem; }
+.hobby-heading h2 { font-size: 1.15rem; }
+.hobby-heading .meta { display: block; margin-top: .5rem; }
+.hobby-story { max-width: var(--reading-width); }
+.hobby-story p + p { margin-top: 1rem; }
+.hobby-media { margin-top: 1.5rem; max-width: 38rem; }
+.hobby-media img { width: 100%; height: auto; border-radius: var(--radius); }
+.hobby-media figcaption { margin-top: .65rem; }
+.hobby-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.hobby-updates { list-style: none; padding: 0; margin: 1.5rem 0 0; max-width: var(--reading-width); }
+.hobby-updates li { border-left: 2px solid var(--line); padding: .25rem 0 .25rem 1rem; }
+.hobby-updates li + li { margin-top: 1rem; }
+.hobby-update-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; align-items: baseline; }
+.hobby-update-top h3 { font-size: .8125rem; }
+.hobby-updates p { margin-top: .5rem; color: var(--muted); font-size: .8125rem; }
+@media (max-width: 640px) {
+  .site-header .header-controls { width: 100%; justify-content: space-between; }
+  .home-explore { flex-wrap: wrap; }
+  .hobby-section { padding: 2rem 0; }
+  .hobby-media-grid { grid-template-columns: 1fr; }
 }
