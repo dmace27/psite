@@ -1,0 +1,17 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import SectionIndex from '../components/SectionIndex.astro';
+import { siteContent } from '../content/site';
+
+const sections = [
+  { label: 'writing', href: '/writing' },
+  { label: 'hobbies', href: '/hobbies' },
+  { label: 'media', href: '/media' },
+  { label: 'quotes', href: '/quotes' },
+];
+---
+<SiteLayout title={`other / ${siteContent.identity.name}`} description="Writing, hobbies, media, and quotes from Daniel Mace.">
+  <PageHeading title="other" description="Everything else I want to share" />
+  <SectionIndex links={sections} label="Explore other pages" />
+</SiteLayout>

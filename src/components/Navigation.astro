@@ -3,8 +3,14 @@ import type { Link } from '../content/schema';
 interface Props { links: Link[]; label?: string; homeHref?: string; }
 const { links, label = 'dm / framework', homeHref = '#main' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-// A nested article keeps writing marked as the current section.
-const current = (href: string) => path === href ? 'page' : href !== '/' && href.startsWith('/') && path.startsWith(`${href}/`) ? 'true' : undefined;
+// The four pages grouped under Other keep that navigation item active.
+const otherSections = ['/writing', '/hobbies', '/media', '/quotes'];
+const current = (href: string) => {
+  if (path === href) return 'page';
+  if (href === '/other' && otherSections.some((section) => path === section || path.startsWith(`${section}/`))) return 'true';
+  if (href !== '/' && href.startsWith('/') && path.startsWith(`${href}/`)) return 'true';
+  return undefined;
+};
 ---
 <header class="site-header">
   <a class="wordmark" href={homeHref} aria-label={homeHref === "/" ? "Home" : "Back to main content"}>{label}</a>

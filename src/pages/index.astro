@@ -2,11 +2,12 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Intro from '../components/Intro.astro';
 import SectionRenderer from '../components/SectionRenderer.astro';
+import HikingScene from '../components/HikingScene.astro';
 import { siteContent } from '../content/site';
 ---
 <SiteLayout title={`${siteContent.identity.name} / home`}>
-  <Intro identity={siteContent.identity} />
-  <span class="meta">layout preview / content to come</span>
+  <Intro identity={siteContent.identity} largeHeading />
   <SectionRenderer sections={siteContent.sections} />
-  <div class="home-explore"><a href="/projects">projects ↗</a><a href="/writing">writing ↗</a><a href="/hobbies">hobbies ↗</a><a href="/media">media ↗</a><a href="/quotes">quotes ↗</a></div>
+  <div class="home-explore"><a href="/projects">projects ↗</a><a href="/other">other ↗</a></div>
+  <HikingScene slot="landscape" />
 </SiteLayout>

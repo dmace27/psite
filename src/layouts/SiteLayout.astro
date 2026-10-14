@@ -6,12 +6,35 @@ import { contactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
 interface Props { title: string; description?: string; }
 const { title, description = siteContent.metadata.description } = Astro.props;
+// Keep home-page copy above the landscape when it overlaps the lower content.
+const hasLandscape = Astro.slots.has('landscape');
 ---
 <Shell title={title} description={description}>
-  <Navigation label={siteContent.identity.name} links={siteContent.navigation} homeHref="/" />
-  <main id="main"><slot /></main>
-  <footer class="site-footer">
-    <div class="footer-identity"><span class="meta">{siteContent.identity.name}</span><ContactLinks methods={contactMethods} /></div>
+  <Navigation label="dm" links={siteContent.navigation} homeHref="/" />
+  <main id="main" class:list={{ 'landscape-foreground': hasLandscape }}><slot /></main>
+  <footer class:list={['site-footer', { 'landscape-foreground': hasLandscape }]}>
+    <div class="footer-identity"><span class="meta">{siteContent.identity.name}</span><ContactLinks methods={contactMethods} compactEmail={hasLandscape} /></div>
     <a href="#main">back to top ↑</a>
   </footer>
+  <slot name="landscape" />
 </Shell>
+
+<style>
+  .landscape-foreground { position: relative; z-index: 1; }
+  footer.landscape-foreground {
+    align-items: baseline;
+    margin-top: 3rem;
+    padding-bottom: .75rem;
+    border-top: 0;
+  }
+  footer.landscape-foreground :global(.footer-identity) { gap: .75rem 2rem; }
+  footer.landscape-foreground :global(.footer-identity > .meta) { font-size: .75rem; }
+  footer.landscape-foreground :global(a) { font-size: .75rem; }
+  footer.landscape-foreground :global(a),
+  footer.landscape-foreground :global(.meta) { color: var(--ink); }
+  footer.landscape-foreground :global(.footer-contact-links) { gap: .5rem 1rem; }
+  @media (max-width: 640px) {
+    footer.landscape-foreground { gap: .5rem 1rem; }
+    footer.landscape-foreground :global(.footer-identity) { gap: .5rem 1.25rem; }
+  }
+</style>

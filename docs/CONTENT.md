@@ -2,15 +2,15 @@
 
 ## Routes
 
-| URL | Purpose |
-| --- | --- |
-| `/` | Home/about: introduction, about text, current focus |
-| `/projects` | Dedicated projects list |
-| `/writing` | Writing index, automatically built from articles |
-| `/hobbies` | Personal interests with reusable hobby sections |
-| `/writing/first-article` | First placeholder article |
-| `/writing/second-article` | Second placeholder article |
-| `/ui` | Retained component reference, separate from the main navigation |
+| URL                       | Purpose                                                         |
+| ------------------------- | --------------------------------------------------------------- |
+| `/`                       | Home/about: introduction, about text, current focus             |
+| `/projects`               | Dedicated projects list                                         |
+| `/writing`                | Writing index, automatically built from articles                |
+| `/hobbies`                | Personal interests with reusable hobby sections                 |
+| `/writing/first-article`  | First placeholder article                                       |
+| `/writing/second-article` | Second placeholder article                                      |
+| `/ui`                     | Retained component reference, separate from the main navigation |
 
 All three main pages share navigation, theme preference and footer. Article pages keep writing highlighted as their current section and have a back-to-index link. The same reading layout handles short notes and longer essays.
 

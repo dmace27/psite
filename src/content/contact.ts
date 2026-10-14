@@ -27,8 +27,8 @@ export interface ContactMethod {
 // Unconfigured footer links lead to their labelled contact-page slots instead of
 // invented accounts. Email becomes a mailto link once an address is supplied.
 export const contactMethods: ContactMethod[] = [
-  { id: 'github', label: 'GitHub', href: contact.github ?? '/contact#github', value: contact.github, pending: !contact.github },
-  { id: 'linkedin', label: 'LinkedIn', href: contact.linkedin ?? '/contact#linkedin', value: contact.linkedin, pending: !contact.linkedin },
+  { id: 'github', label: 'github', href: contact.github ?? '/contact#github', value: contact.github, pending: !contact.github },
+  { id: 'linkedin', label: 'linkedin', href: contact.linkedin ?? '/contact#linkedin', value: contact.linkedin, pending: !contact.linkedin },
   { id: 'x', label: 'X', href: contact.x ?? '/contact#x', value: contact.x, pending: !contact.x },
   { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : '/contact#email', value: contact.email, pending: !contact.email },
 ];

@@ -72,14 +72,15 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* Compact navigation and a name-led introduction replace the marketing-style hero. */
 .site-header { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 2rem 0 0; }
-.wordmark { text-decoration: none; font-size: .75rem; font-weight: 500; white-space: nowrap; }
+.wordmark { text-decoration: none; font-size: .875rem; font-weight: 500; white-space: nowrap; }
 .header-controls, .header-controls nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; }
-.header-controls nav a { font-size: .75rem; color: var(--muted); text-decoration: none; }
+.header-controls nav a { font-size: .875rem; color: var(--muted); text-decoration: none; }
 .header-controls nav a:hover { color: var(--ink); text-decoration: underline; }
 .icon-button { display: inline-grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 0; border-radius: var(--radius); }
 .icon-button:hover { color: var(--accent); background: var(--surface); }
 .theme-toggle { font-size: .875rem; }
 .intro { padding: 3.5rem 0 1rem; }
+.intro-title-large { font-size: clamp(2.75rem, 7vw, 4.5rem); }
 .intro p { max-width: var(--reading-width); margin-top: 1.2rem; font-size: .9375rem; line-height: 1.85; }
 .intro .link-group { margin-top: 1.4rem; }
 .link-group { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; margin-top: .9rem; }
@@ -201,7 +202,7 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
   .site-header { flex-wrap: wrap; gap: .5rem; padding-top: 1rem; }
   .header-controls { gap: .5rem; }
   .header-controls nav { gap: .8rem; }
-  .header-controls nav a { font-size: .6875rem; }
+  .header-controls nav a { font-size: .8rem; }
   .intro { padding-top: 2.5rem; }
   .content-section { padding-top: 2.5rem; }
   .project-grid, .feature-grid { grid-template-columns: 1fr; gap: 1.5rem; }
