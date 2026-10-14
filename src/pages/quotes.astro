@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import QuoteCard from '../components/QuoteCard.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { quotes } from '../content/quotes';
+import { siteContent } from '../content/site';
+---
+<SiteLayout title={`quotes / ${siteContent.identity.name}`} description="Words and passages worth holding onto.">
+  <PageHeading title="quotes" description="Words and passages worth holding onto." placeholder={quotes.some((quote) => quote.placeholder)} />
+  {quotes.length ? <div class="quote-list">{quotes.map((quote) => <QuoteCard quote={quote} />)}</div> : <EmptyState message="a few words to keep here, soon." />}
+</SiteLayout>

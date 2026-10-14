@@ -13,6 +13,8 @@ export const siteContent = siteSchema.parse({
     { label: 'projects', href: '/projects' },
     { label: 'writing', href: '/writing' },
     { label: 'hobbies', href: '/hobbies' },
+    { label: 'media', href: '/media' },
+    { label: 'quotes', href: '/quotes' },
   ],
   sections: [
     { id: 'about', type: 'prose', title: 'about', paragraphs: [[{ text: 'This space is for a little more about you: your background, interests, and the things that matter to you.' }]] },

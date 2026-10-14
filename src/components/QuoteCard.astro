@@ -1,0 +1,17 @@
+---
+import type { Quote } from '../content/collections-schema';
+interface Props { quote: Quote; }
+const { quote } = Astro.props;
+---
+<!-- cite identifies the work; attribution names the speaker or author separately. -->
+<figure class="quote-entry" id={quote.id}>
+  {quote.placeholder && <span class="meta collection-placeholder">quote template / content to come</span>}
+  <blockquote><p>{quote.text}</p></blockquote>
+  {(quote.attribution || quote.source || quote.href) && <figcaption class="quote-attribution">
+    {quote.attribution && <span>{quote.attribution}</span>}
+    {quote.attribution && quote.source && <span aria-hidden="true"> · </span>}
+    {quote.source && <cite>{quote.href ? <a href={quote.href}>{quote.source}</a> : quote.source}</cite>}
+    {!quote.source && quote.href && <a href={quote.href}>source ↗</a>}
+  </figcaption>}
+  {quote.note && <p class="quote-note muted">{quote.note}</p>}
+</figure>

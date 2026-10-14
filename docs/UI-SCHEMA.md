@@ -90,3 +90,7 @@ The separate `/hobbies` page extends the primary navigation. Its content comes f
 | HobbyUpdates | updates: Hobby['updates'] | Authored recent-activity notes with optional date and link |
 
 Hobby = `{ id, title, paragraphs, photos?, links?, updates?, placeholder? }`. An update has `{ title, detail, date?, href? }`. Optional arrays default to empty. IDs are unique and cannot use the main landmark ID. Sections render in their authored order, and the page index derives from those same IDs. On phones navigation wraps into a second row and multi-photo media stacks vertically.
+
+## Personal media and quotes
+
+`/media` uses MediaSection components with freely named categories. Each group is `{ id, title, items }`; each item is `{ title, creator?, note?, href?, placeholder? }`. The section index derives from the same groups. `/quotes` uses semantic blockquote/figure/figcaption entries through QuoteCard: `{ id, text, attribution?, source?, href?, note?, placeholder? }`. The source work is a cite element; author attribution is separate. Lists are authored in `src/content/media.ts` and `src/content/quotes.ts`, with validation in `collections-schema.ts`.

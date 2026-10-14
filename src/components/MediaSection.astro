@@ -1,0 +1,16 @@
+---
+import type { MediaGroup } from '../content/collections-schema';
+interface Props { group: MediaGroup; }
+const { group } = Astro.props;
+---
+<section class="media-section" id={group.id} aria-labelledby={`${group.id}-heading`}>
+  <h2 id={`${group.id}-heading`}>{group.title}</h2>
+  <ul class="media-list" role="list">
+    {group.items.map((item) => <li>
+      <h3>{item.href ? <a href={item.href}>{item.title}<span aria-hidden="true"> ↗</span></a> : item.title}</h3>
+      {item.creator && <p class="media-creator meta">{item.creator}</p>}
+      {item.note && <p class="media-note muted">{item.note}</p>}
+      {item.placeholder && <span class="meta collection-placeholder">media template / content to come</span>}
+    </li>)}
+  </ul>
+</section>

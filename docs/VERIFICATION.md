@@ -39,3 +39,10 @@ The real website content, final routes and external links remain pending. No dep
 - Static build includes `/hobbies`; all seven built pages have valid internal routes and section anchors.
 - Browser checked desktop and 390px phone layout; hobbies is the active primary navigation item and no horizontal overflow occurs at phone width.
 - Section-index link reaches the creative-hobby anchor. Placeholder media has dimensions, alt text and a caption.
+
+## Media and quotes — 13 October 2026
+
+- Existing eight tests pass; Astro/TypeScript and static build complete successfully.
+- Media and quotes are available through primary navigation and home links.
+- Browser review of both pages at desktop/390px phone widths; no horizontal overflow at the checked phone width.
+- Reusable category entries and quote entries use explicit placeholder labels. No real preferences or attributions were fabricated.

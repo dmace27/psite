@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import MediaSection from '../components/MediaSection.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { mediaGroups } from '../content/media';
+import { siteContent } from '../content/site';
+---
+<SiteLayout title={`media / ${siteContent.identity.name}`} description="Music, shows, movies, books, and other things worth keeping.">
+  <PageHeading title="media" description="Things I enjoy, return to, or keep thinking about." placeholder={mediaGroups.some((group) => group.items.some((item) => item.placeholder))} />
+  {mediaGroups.length > 1 && <nav class="collection-index" aria-label="Media categories">{mediaGroups.map((group) => <a href={`#${group.id}`}>{group.title}</a>)}</nav>}
+  {mediaGroups.length ? mediaGroups.map((group) => <MediaSection group={group} />) : <EmptyState message="more things to collect soon." />}
+</SiteLayout>

@@ -71,3 +71,28 @@ Omit optional fields when they aren't useful. A hobby can be text-only. Multiple
 IDs must be unique lowercase names and cannot be `main`, since they're page anchors. The page index is generated from the same hobby list. Remove `placeholder: true` and replace the neutral placeholder image when adding actual content. Removing all entries shows a simple empty state.
 
 The content schema is `src/content/hobbies-schema.ts`; `HobbyMedia` and `HobbyUpdates` can also be used independently if useful. No third-party embeds, integrations, autoplay, or account connections are required.
+
+## Media and quotes
+
+`/media` groups things you enjoy: music, shows, movies, books, pieces of writing, and other media. Edit `src/content/media.ts`. Categories are freely named and render in array order. Each category has a unique `id`, a `title`, and an `items` array. Items have a required `title` and optional `creator`, `note`, `href`, and `placeholder`.
+
+```ts
+{ id: 'books', title: 'books', items: [
+  { title: 'A book title', creator: 'Its author', note: 'What you enjoyed or found interesting.', href: 'https://example.com/book' },
+] }
+```
+
+`/quotes` is a collection of passages with optional attribution and commentary. Edit `src/content/quotes.ts`. Each quote has a unique `id` and required `text`; optional fields are `attribution`, `source`, `href`, `note`, and `placeholder`.
+
+```ts
+{
+  id: 'a-quote',
+  text: 'The exact quotation you want to keep.',
+  attribution: 'Its author, when known',
+  source: 'The book, essay, interview, or other work',
+  href: 'https://example.com/source',
+  note: 'Why it interests you.',
+}
+```
+
+Both pages use clearly labelled placeholders initially. Replace or remove those specimens when adding your own choices. Omit unknown attribution instead of guessing. Lists render in authored order. Empty collections show a quiet empty state. `MediaSection` and `QuoteCard` provide the reusable presentation; `collections-schema.ts` validates content and links. Main navigation and the home exploration links include both pages.

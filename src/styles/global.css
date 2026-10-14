@@ -287,3 +287,23 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
   .hobby-section { padding: 2rem 0; }
   .hobby-media-grid { grid-template-columns: 1fr; }
 }
+
+/* Personal collections keep the typography-led layout, without ratings or feeds. */
+.collection-index { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; padding-bottom: 1.75rem; font-size: .75rem; color: var(--muted); }
+.media-section { padding: 2rem 0; border-top: 1px solid var(--line); }
+.media-section > h2 { margin-bottom: 1.25rem; }
+.media-list { list-style: none; padding: 0; margin: 0; }
+.media-list li + li { margin-top: 1.5rem; }
+.media-creator { margin-top: .25rem; }
+.media-note { margin-top: .5rem; max-width: var(--reading-width); font-size: .8125rem; }
+.collection-placeholder { display: block; margin-top: .5rem; }
+.quote-entry { padding: 1.75rem 0; border-top: 1px solid var(--line); }
+.quote-entry > .collection-placeholder { margin: 0 0 1rem; }
+.quote-entry blockquote { margin: 0; border-left: 2px solid var(--accent); padding-left: 1.25rem; font-size: 1rem; line-height: 1.9; overflow-wrap: anywhere; }
+.quote-attribution { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: 1rem 0 0 1.25rem; font-size: .75rem; color: var(--muted); }
+.quote-attribution cite { font-style: normal; }
+.quote-note { margin: 1rem 0 0 1.25rem; font-size: .8125rem; max-width: var(--reading-width); }
+@media (max-width: 640px) {
+  .header-controls nav { flex: 1; min-width: 0; }
+  .theme-toggle { flex-shrink: 0; }
+}
