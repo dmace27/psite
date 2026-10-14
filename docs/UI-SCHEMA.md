@@ -13,7 +13,7 @@ The current framework follows Matthew Hamilton and David Chen's JetBrains Mono t
 | Line | `#e0e1e3` | `#2c2e32` |
 | Accent/focus | `#496aaa` | `#99afe0` |
 
-`--font-body` and `--font-heading` both point at `--mono`, whose first family is `JetBrains Mono Variable`. The font is imported locally through the installed Fontsource package, not a third-party font request. Weights: 400 body, 500 subheadings, 600 name. Sizes: 14px body; 15px introduction; 16px section titles; 32–52px name; 11px metadata. Outer width: 52rem; reading width: 42rem; desktop gutters: 32px; phone gutters: 20px. Main responsive breakpoint: 640px.
+`--font-body` and `--font-heading` both point at `--mono`, whose first family is `JetBrains Mono Variable`. The font is imported locally through the installed Fontsource package, not a third-party font request. Weights: 400 body, 500 subheadings, 600 name. Sizes: 14px body; 15px introduction; 16px section titles; 32–52px name; 11px metadata. Outer width: 64rem; reading width: 52rem; desktop gutters: 32px; phone gutters: 20px. Main responsive breakpoint: 640px.
 
 ## Component contract
 
@@ -75,7 +75,7 @@ The new components reuse existing data types without prescribing required sectio
 
 ## Three-page site structure
 
-The main route map is now home/about `/`, projects `/projects`, writing `/writing`, and contained article pages `/writing/[slug]`. `SiteLayout` shares the shell/navigation/footer. `PageHeading` supplies the projects and writing titles. `ArticleList` renders entries from the Markdown collection. Writing's metadata schema requires title and description; publishedAt, order, draft, and placeholder control optional publication metadata and visibility. The article template renders Markdown in a 42rem column. Navigation marks exact page matches with `aria-current="page"` and marks writing as the current section on article routes.
+The main route map is now home/about `/`, projects `/projects`, writing `/writing`, and contained article pages `/writing/[slug]`. `SiteLayout` shares the shell/navigation/footer. `PageHeading` supplies the projects and writing titles. `ArticleList` renders entries from the Markdown collection. Writing's metadata schema requires title and description; publishedAt, order, draft, and placeholder control optional publication metadata and visibility. The article template renders Markdown in a 52rem column. Navigation marks exact page matches with `aria-current="page"` and marks writing as the current section on article routes.
 
 ProjectList accepts optional headingLevel so projects directly below a page h1 use h2, while gallery specimens inside sections use h3. See `docs/CONTENT.md` for authoring and filenames.
 

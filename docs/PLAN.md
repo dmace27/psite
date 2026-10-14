@@ -13,7 +13,7 @@ The current Matthew URL was identified from a focused search; it is the Waterloo
 
 ## Visual direction
 
-One locally hosted font: **JetBrains Mono Variable**, installed through `@fontsource-variable/jetbrains-mono`. Use 400 for body text, 500 for small headings, 600 for the name. Body text is 14px with 1.8 line height; introduction copy is 15px; the name scales from 32 to 52px. The 52rem outer canvas has 32px gutters, reducing to 20px on phones.
+One locally hosted font: **JetBrains Mono Variable**, installed through `@fontsource-variable/jetbrains-mono`. Use 400 for body text, 500 for small headings, 600 for the name. Body text is 14px with 1.8 line height; introduction copy is 15px; the name scales from 32 to 52px. The 64rem outer canvas has 32px gutters, reducing to 20px on phones.
 
 Neutral off-white and charcoal replace the warm brown/green palette. A muted blue marks links, focus rings and list prompts. Quiet bracketed inline highlights supply emphasis. Borders belong to small structural separators rather than decorative panels. Text is immediately visible, without intro animation or decorative photo treatments.
 

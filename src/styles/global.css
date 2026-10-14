@@ -15,8 +15,9 @@
   --mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, Menlo, monospace;
   --font-body: var(--mono);
   --font-heading: var(--mono);
-  --page-width: 52rem;
-  --reading-width: 42rem;
+  /* Wider desktop proportions, while leaving a modest inset for long reading. */
+  --page-width: 64rem;
+  --reading-width: 52rem;
   --radius: 2px;
   --space-1: .25rem;
   --space-2: .5rem;
