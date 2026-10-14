@@ -1,0 +1,8 @@
+---
+import type { ContactMethod } from '../content/contact';
+interface Props { methods: ContactMethod[]; }
+const { methods } = Astro.props;
+---
+<nav class="footer-contact-links" aria-label="Contact links">
+  {methods.map((method) => <a href={method.href} aria-label={method.pending ? `${method.label} — contact details to come` : undefined}>{method.label}</a>)}
+</nav>

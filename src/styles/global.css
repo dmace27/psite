@@ -308,3 +308,13 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
   .header-controls nav { flex: 1; min-width: 0; }
   .theme-toggle { flex-shrink: 0; }
 }
+
+/* Contact details share one source, displayed beside the name on every site page. */
+.site-footer { flex-wrap: wrap; }
+.footer-identity { display: flex; flex-wrap: wrap; align-items: baseline; gap: .75rem 1.75rem; min-width: 0; }
+.footer-contact-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; min-width: 0; }
+.footer-contact-links a { overflow-wrap: anywhere; }
+.contact-method-list { list-style: none; margin: 0; padding: 0; }
+.contact-method-list li { padding: 1.25rem 0; border-top: 1px solid var(--line); }
+.contact-method-list h2 { margin-bottom: .65rem; font-size: .875rem; }
+.contact-method-list a { font-size: .8125rem; }

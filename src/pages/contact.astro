@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import { siteContent } from '../content/site';
+import { contactMethods } from '../content/contact';
+---
+<SiteLayout title={`contact / ${siteContent.identity.name}`} description="Email and places to connect.">
+  <PageHeading title="contact" description="A few places to find me, or get in touch." placeholder={contactMethods.some((method) => method.pending)} />
+  <ul class="contact-method-list" role="list">
+    {contactMethods.map((method) => <li id={method.id}>
+      <h2>{method.id === 'email' ? 'email' : method.label}</h2>
+      {method.pending ? <p class="meta">{method.id === 'email' ? 'Email address to come.' : 'Profile link to come.'}</p> : <a href={method.href}>{method.value}<span aria-hidden="true"> ↗</span></a>}
+    </li>)}
+  </ul>
+</SiteLayout>

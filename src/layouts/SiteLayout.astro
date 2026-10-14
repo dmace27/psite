@@ -1,6 +1,8 @@
 ---
 import Shell from './Shell.astro';
 import Navigation from '../components/Navigation.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import { contactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
 interface Props { title: string; description?: string; }
 const { title, description = siteContent.metadata.description } = Astro.props;
@@ -8,5 +10,8 @@ const { title, description = siteContent.metadata.description } = Astro.props;
 <Shell title={title} description={description}>
   <Navigation label={siteContent.identity.name} links={siteContent.navigation} homeHref="/" />
   <main id="main"><slot /></main>
-  <footer class="site-footer"><span class="meta">{siteContent.identity.name}</span><a href="#main">back to top ↑</a></footer>
+  <footer class="site-footer">
+    <div class="footer-identity"><span class="meta">{siteContent.identity.name}</span><ContactLinks methods={contactMethods} /></div>
+    <a href="#main">back to top ↑</a>
+  </footer>
 </Shell>

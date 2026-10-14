@@ -46,3 +46,9 @@ The real website content, final routes and external links remain pending. No dep
 - Media and quotes are available through primary navigation and home links.
 - Browser review of both pages at desktop/390px phone widths; no horizontal overflow at the checked phone width.
 - Reusable category entries and quote entries use explicit placeholder labels. No real preferences or attributions were fabricated.
+
+## Contact page and footer
+
+- Type checks and static build pass.
+- Contact navigation and the four supplied contact destinations are present on all nine main site pages (the UI reference has its own footer).
+- Browser verified profile URLs and the mailto email destination, with no horizontal overflow at 390px phone width.
