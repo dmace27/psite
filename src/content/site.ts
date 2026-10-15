@@ -17,8 +17,8 @@ export const siteContent = siteSchema.parse({
   sections: [
     { id: 'about', type: 'prose', title: 'about', paragraphs: [[{ text: 'I see myself as incredibly ambitious, hard working, motivated, ' }]] },
     { id: 'currently', type: 'list', title: 'currently', items: [
-      [{ text: 'working on ' }, { text: 'your current focus', tone: 'blue' }, { text: '.' }],
-      [{ text: 'learning about ' }, { text: 'something that interests you', tone: 'sand' }, { text: '.' }],
+      [{ text: 'working on ' }, { text: 'RoleSpark', tone: 'blue' }, { text: '.' }],
+      [{ text: 'learning about ' }, { text: 'agent evals and benchmarks', tone: 'sand' }, { text: '.' }],
     ] },
   ],
 });
