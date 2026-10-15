@@ -83,6 +83,9 @@ img { display: block; max-width: 100%; height: auto; }
 .intro-title-large { font-size: clamp(2.75rem, 7vw, 4.5rem); }
 .intro p { max-width: var(--reading-width); margin-top: 1.2rem; font-size: .9375rem; line-height: 1.85; }
 .intro .link-group { margin-top: 1.4rem; }
+/* A warmer yellow emphasizes the university in the introduction. */
+.intro .tone-sand { background: #fff0a6; }
+:root[data-theme='dark'] .intro .tone-sand { background: #66551f; }
 .link-group { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; margin-top: .9rem; }
 .link-group a, .text-link { font-size: .75rem; color: var(--muted); }
 .link-group a:hover { color: var(--accent); }
