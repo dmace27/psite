@@ -5,16 +5,16 @@ import { hobbiesSchema } from './hobbies-schema';
  */
 export const hobbies = hobbiesSchema.parse([
   {
-    id: 'active-hobby',
-    title: 'an active hobby',
-    placeholder: true,
-    paragraphs: [[{ text: 'A sport, a routine, or something that gets you moving. Write a little about what you enjoy and how it fits into your life.' }]],
+    id: 'soccer' ,
+    title: 'soccer',
+    placeholder: false,
+    paragraphs: [[{ text: 'I grew' }]],
     updates: [{ title: 'recently — placeholder', detail: 'A recent session, personal milestone, or something you’re practicing can go here.' }],
   },
   {
-    id: 'creative-hobby',
-    title: 'a creative hobby',
-    placeholder: true,
+    id: 'hiking',
+    title: 'hiking',
+    placeholder: false,
     paragraphs: [[{ text: 'Music, art, photography, cooking, or another creative outlet. Use this space for the part of the hobby that feels most like you.' }]],
     photos: [{
       src: '/images/hobby-placeholder.svg',
@@ -27,7 +27,7 @@ export const hobbies = hobbiesSchema.parse([
   {
     id: 'another-interest',
     title: 'another interest',
-    placeholder: true,
+    placeholder: false,
     paragraphs: [
       [{ text: 'Something you like reading, watching, exploring, collecting, or learning about.' }],
       [{ text: 'A hobby can be just a few sentences. Add photos, recent updates, or profile links only when you want them.' }],
