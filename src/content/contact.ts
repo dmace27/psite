@@ -29,6 +29,6 @@ export interface ContactMethod {
 export const contactMethods: ContactMethod[] = [
   { id: 'github', label: 'github', href: contact.github ?? '/contact#github', value: contact.github, pending: !contact.github },
   { id: 'linkedin', label: 'linkedin', href: contact.linkedin ?? '/contact#linkedin', value: contact.linkedin, pending: !contact.linkedin },
-  { id: 'x', label: 'X', href: contact.x ?? '/contact#x', value: contact.x, pending: !contact.x },
   { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : '/contact#email', value: contact.email, pending: !contact.email },
+  { id: 'x', label: 'X', href: contact.x ?? '/contact#x', value: contact.x, pending: !contact.x },
 ];
