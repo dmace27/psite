@@ -1,0 +1,126 @@
+/* Interior pages inherit the homepage shell. Map older components to its palette. */
+.folio-interior {
+  --paper: var(--canvas);
+  --ink: var(--text);
+  --muted: var(--subtle);
+  --line: var(--rule);
+  --accent: var(--signal);
+  --surface: #eee6da;
+  --reading-width: 42rem;
+}
+
+:root[data-theme='dark'] .folio-interior {
+  color-scheme: dark;
+  --canvas: #201c18;
+  --text: #f4ede1;
+  --subtle: #c7b8a6;
+  --rule: #54463b;
+  --signal: #f0a493;
+  --surface: #302822;
+}
+
+.folio-interior .folio-header a[aria-current] {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.folio-interior .footer-contact-links { gap: .45rem clamp(.9rem, 3vw, 2rem); }
+.folio-footer-actions { display: flex; align-items: center; gap: 1rem; }
+.folio-interior .theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.folio-interior .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Large serif titles and short introductions follow the hierarchy on the homepage. */
+.folio-interior .page-heading {
+  padding-block: clamp(2.75rem, 7vw, 5rem) clamp(1.75rem, 4vw, 3rem);
+}
+
+.folio-interior .page-heading h1 {
+  font-size: clamp(3.25rem, 8vw, 5.75rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.065em;
+}
+
+.folio-interior .page-heading > p {
+  max-width: 42ch;
+  font: 400 clamp(1.15rem, 2.5vw, 1.5rem)/1.35 var(--display);
+}
+
+.folio-interior :is(h2, h3) { font-family: var(--display); font-weight: 400; }
+.folio-interior :is(.hobby-heading h2, .media-section > h2, .section-header h2) {
+  font-size: clamp(1.65rem, 3.4vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+.folio-interior :is(.media-list h3, .entry-top h3, .hobby-update-top h3) {
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+.folio-interior :is(.meta, .spec-label, .eyebrow) { font-size: .7rem; }
+.folio-interior :is(.link-group a, .text-link, .hobby-index a, .collection-index a) { color: var(--accent); font-size: .875rem; }
+.folio-interior .button.solid { background: var(--accent); border-color: var(--accent); }
+.folio-interior .button.solid:hover { background: var(--ink); border-color: var(--ink); }
+.folio-interior .badge { background: var(--surface); border-color: var(--line); }
+
+/* Repeat the homepage's ruled links across the directories and lists. */
+.folio-interior .section-index a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .85rem;
+  font: 400 1.55rem/1.2 var(--display);
+}
+.folio-interior .section-index a:first-child { border-top: 1px solid var(--line); }
+.folio-interior :is(.project-list > li, .article-list li, .contact-method-list li) {
+  padding-block: 1.5rem;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.folio-interior .project-rows > li + li { margin-top: 0; }
+.folio-interior :is(.project-title .project-item-heading, .article-list h2, .contact-method-list h2) {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+}
+.folio-interior .article-list h2 a { text-decoration: none; }
+.folio-interior .article-list h2 a:hover { text-decoration: underline; }
+.folio-interior :is(.article-list p, .media-note, .contact-method-list a, .quote-note, .hobby-updates p) { font-size: .9375rem; }
+.folio-interior .contact-method-list a { color: var(--accent); }
+
+/* Keep longer pieces comfortable to read within the shared page margins. */
+.folio-interior .article-heading h1 {
+  font-size: clamp(2.5rem, 6vw, 4.65rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+}
+.folio-interior :is(.article-back, .article-pagination a) { color: var(--accent); font-size: .875rem; }
+.folio-interior .article-body { font: 400 1.18rem/1.7 var(--display); }
+.folio-interior .article-body h2 { font-size: 1.65rem; }
+.folio-interior .article-body h3 { font-size: 1.35rem; }
+.folio-interior .article-body pre,
+.folio-interior .article-body pre code { font: .875rem/1.6 var(--mono); }
+
+.folio-interior .hobby-media,
+.folio-interior .hobby-updates { margin-top: 1.5rem; }
+.folio-interior .quote-entry { padding-block: 1.75rem; }
+.folio-interior .quote-entry blockquote { font: 400 clamp(1.35rem, 3vw, 2rem)/1.4 var(--display); }
+
+.folio-interior .ui-page .content-section { padding-block: 2rem; border-top: 1px solid var(--line); }
+.folio-interior .type-large { font: 400 3rem/1 var(--display); }
+.folio-interior .type-medium { font: 400 1.75rem/1.15 var(--display); }
+
+@media (max-width: 520px) {
+  .folio-interior .folio-footer { align-items: flex-start; }
+  .folio-footer-actions { width: 100%; justify-content: space-between; }
+}

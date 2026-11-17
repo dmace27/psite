@@ -32,3 +32,9 @@ export const contactMethods: ContactMethod[] = [
   { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : '/contact#email', value: contact.email, pending: !contact.email },
   { id: 'x', label: 'X', href: contact.x ?? '/contact#x', value: contact.x, pending: !contact.x },
 ];
+
+// Lead with email in the footer while keeping the contact page's order.
+export const footerContactMethods = [
+  ...contactMethods.filter((method) => method.id === 'email'),
+  ...contactMethods.filter((method) => method.id !== 'email'),
+];

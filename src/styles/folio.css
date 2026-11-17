@@ -1,0 +1,136 @@
+/* The Folio homepage uses its own typography and color palette. */
+body:has(.folio) > .page-shell {
+  max-width: none;
+  padding: 0;
+}
+
+.folio {
+  --canvas: #f7f2e8;
+  --text: #25211c;
+  --subtle: #60564b;
+  --rule: #d2c5b5;
+  --signal: #9b3527;
+  --display: 'Baskervville', Georgia, serif;
+  color-scheme: light;
+  min-height: 100svh;
+  background: var(--canvas);
+  color: var(--text);
+  font: 400 1rem/1.6 var(--display);
+}
+
+.folio h1, .folio h2 { font-family: var(--display); }
+.folio a:hover { color: var(--signal); }
+.folio :focus-visible { outline-color: var(--signal); }
+.folio ::selection { background: var(--text); color: var(--canvas); }
+.folio a { text-underline-offset: .25em; }
+.folio :is(ul, figure) { padding: 0; margin: 0; }
+.folio .highlight { padding: 0; background: none; font-weight: 650; }
+.folio .highlight::before, .folio .highlight::after { content: none; }
+
+/* Align the navigation, text, and photo within the same centered column. */
+.folio-wrap {
+  width: min(54rem, calc(100% - clamp(3rem, 14vw, 10rem)));
+  margin-inline: auto;
+}
+.folio-header, .folio-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 2rem;
+  padding-block: 1.25rem;
+}
+.folio-header { border-bottom: 1px solid var(--rule); }
+.folio-header nav, .folio-footer nav { display: flex; flex-wrap: wrap; gap: .45rem clamp(.9rem, 3vw, 2rem); }
+.folio-header a, .folio-footer a { text-decoration: none; }
+.folio-header nav a:hover, .folio-footer a:hover { text-decoration: underline; }
+.folio-header nav { font: 400 .8rem/1.5 var(--mono); }
+.folio-wordmark { font: 700 1.25rem/1.2 var(--display); letter-spacing: -.06em; }
+.folio-footer {
+  margin-top: clamp(2.5rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--rule);
+  color: var(--subtle);
+  font-family: var(--mono);
+  font-size: .875rem;
+}
+.folio-home :is(.folio-header, .folio-footer) { padding-block: 1rem; }
+.folio-home .folio-footer { margin-top: clamp(1.75rem, 3.5vw, 3.25rem); }
+.folio-label {
+  color: var(--subtle);
+  font: 500 .74rem/1.5 var(--mono) !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.folio-text-link {
+  display: inline-block;
+  width: fit-content;
+  color: var(--signal);
+  font-size: .875rem;
+  font-weight: 650;
+}
+.folio-current-list { list-style: none; }
+.folio-current-list li + li { margin-top: .35rem; }
+
+/* The Folio gives the name and introduction the proportions of a print cover. */
+.folio-hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: end;
+  gap: clamp(1.5rem, 6vw, 5rem);
+  padding-block: clamp(1.75rem, 3.5vw, 3rem);
+}
+.folio-hero h1 {
+  font-size: clamp(5.25rem, 12vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -.085em;
+  line-height: .77;
+}
+.folio-intro p {
+  max-width: 17ch;
+  font: 400 clamp(1.35rem, 2.7vw, 2.25rem)/1.16 var(--display);
+  letter-spacing: -.035em;
+}
+.folio-intro .folio-text-link { margin-top: 1rem; }
+.folio-landscape img {
+  /* Trim the open sky while leaving room for the peaks and their reflection. */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3.48;
+  object-fit: cover;
+  object-position: center 48%;
+}
+.folio-landscape figcaption {
+  padding-block: .4rem .6rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--subtle);
+  font: .69rem/1.5 var(--mono);
+  text-align: right;
+}
+.folio-columns {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(1.5rem, 6vw, 5rem);
+  padding-top: 1rem;
+}
+.folio-current .folio-current-list { margin-top: .8rem; color: var(--subtle); }
+.folio-links { list-style: none; }
+.folio-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .55rem;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  font: 400 1.45rem/1.2 var(--display);
+}
+
+@media (max-width: 760px) {
+  .folio-hero, .folio-columns { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 520px) {
+  .folio-header { gap: .75rem; }
+  .folio-header nav { gap: .35rem .75rem; }
+  .folio-hero, .folio-columns { grid-template-columns: 1fr; }
+}

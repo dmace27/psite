@@ -1,13 +1,74 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
-import Intro from '../components/Intro.astro';
-import SectionRenderer from '../components/SectionRenderer.astro';
-import HikingScene from '../components/HikingScene.astro';
+import Shell from '../layouts/Shell.astro';
+import RichText from '../components/RichText.astro';
+import { footerContactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
+import '../styles/folio.css';
+
+const name = siteContent.identity.name.trim();
+const introduction = siteContent.identity.introduction;
+const current = siteContent.sections.find((section) => section.id === 'currently' && section.type === 'list');
+const currentItems = current?.type === 'list' ? current.items : [];
+
+const destinations = [
+  { label: 'Projects', href: '/projects' },
+  { label: 'Writing', href: '/writing' },
+  { label: 'Hobbies', href: '/hobbies' },
+  { label: 'Other', href: '/other' },
+  { label: 'Contact', href: '/contact' },
+];
 ---
-<SiteLayout title={`${siteContent.identity.name} / home`}>
-  <Intro identity={siteContent.identity} largeHeading />
-  <SectionRenderer sections={siteContent.sections} />
-  <div class="home-explore"><a href="/projects">projects ↗</a><a href="/other">other ↗</a></div>
-  <HikingScene slot="landscape" />
-</SiteLayout>
+<Shell title={name} description={siteContent.metadata.description}>
+  <div class="folio folio-home">
+    <div class="folio-wrap">
+      <header class="folio-header">
+        <a class="folio-wordmark" href="/" aria-label={`${name}, home`} aria-current="page">DM</a>
+        <nav aria-label="Main navigation">
+          {destinations.map((link) => <a href={link.href}>{link.label}</a>)}
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="folio-hero" aria-labelledby="folio-title">
+          <h1 id="folio-title">Daniel<br />Mace</h1>
+          <div class="folio-intro">
+            {introduction.map((paragraph) => <p><RichText spans={paragraph} /></p>)}
+            <a class="folio-text-link" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+        <figure class="folio-landscape">
+          <img
+            src="/images/tetons-3856.webp"
+            width="2200"
+            height="1650"
+            alt="Sunlit Teton peaks and their reflection in still water beneath a clear blue sky."
+          />
+          <figcaption>Grand Tetons, Wyoming</figcaption>
+        </figure>
+        <div class="folio-columns">
+          <section class="folio-current" aria-labelledby="folio-current">
+            <h2 id="folio-current" class="folio-label">Currently</h2>
+            <ul class="folio-current-list">
+              {currentItems.map((item) => <li><RichText spans={item} /></li>)}
+            </ul>
+          </section>
+          <section aria-labelledby="folio-explore">
+            <h2 id="folio-explore" class="folio-label">Explore the site</h2>
+            <ul class="folio-links">
+              {destinations.slice(0, 3).map((link) => <li>
+                <a href={link.href}><span>{link.label}</span><span aria-hidden="true">↗</span></a>
+              </li>)}
+            </ul>
+          </section>
+        </div>
+      </main>
+
+      <footer class="folio-footer">
+        <span>{name}</span>
+        <nav aria-label="Contact links">
+          {footerContactMethods.map((method) => <a href={method.href}>{method.id === 'email' ? 'email' : method.label}</a>)}
+        </nav>
+      </footer>
+    </div>
+  </div>
+</Shell>

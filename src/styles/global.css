@@ -231,7 +231,6 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
 .page-heading h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
 .page-heading > p { margin-top: 1rem; max-width: var(--reading-width); }
 .placeholder-label { display: block; margin-top: .9rem; }
-.home-explore { display: flex; gap: 1.5rem; margin-top: 2.5rem; font-size: .8125rem; }
 .article-list { list-style: none; padding: 0; margin: 0; }
 .article-list li { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
 .article-list li:first-child { padding-top: .4rem; }
@@ -288,7 +287,6 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
 .hobby-updates p { margin-top: .5rem; color: var(--muted); font-size: .8125rem; }
 @media (max-width: 640px) {
   .site-header .header-controls { width: 100%; justify-content: space-between; }
-  .home-explore { flex-wrap: wrap; }
   .hobby-section { padding: 2rem 0; }
   .hobby-media-grid { grid-template-columns: 1fr; }
 }
