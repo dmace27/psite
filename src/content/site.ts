@@ -6,7 +6,7 @@ export const siteContent = siteSchema.parse({
   identity: {
     name: 'Daniel Mace ',
     introduction: [[
-      { text: 'I study Computer Science at the ' },
+      { text: 'I study Computer\u00a0Science at the ' },
       { text: 'University of Waterloo', tone: 'sand' },
     ]],
     links: [],
@@ -21,7 +21,7 @@ export const siteContent = siteSchema.parse({
     { id: 'about', type: 'prose', title: 'about', paragraphs: [[{ text: 'I see myself as incredibly ambitious, hard working, motivated, ' }]] },
     { id: 'currently', type: 'list', title: 'currently', items: [
       [{ text: 'working on ' }, { text: 'RoleSpark', tone: 'blue' }, { text: '.' }],
-      [{ text: 'learning about ' }, { text: 'agent evals and benchmarks', tone: 'sand' }, { text: '.' }],
+      [{ text: 'learning about ' }, { text: 'inference and attention', tone: 'sand' }, { text: '.' }],
     ] },
   ],
 });

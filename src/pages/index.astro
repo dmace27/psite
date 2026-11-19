@@ -33,7 +33,6 @@ const destinations = [
           <h1 id="folio-title">Daniel<br />Mace</h1>
           <div class="folio-intro">
             {introduction.map((paragraph) => <p><RichText spans={paragraph} /></p>)}
-            <a class="folio-text-link" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
         </section>
         <figure class="folio-landscape">
@@ -43,7 +42,7 @@ const destinations = [
             height="1650"
             alt="Sunlit Teton peaks and their reflection in still water beneath a clear blue sky."
           />
-          <figcaption>Grand Tetons, Wyoming</figcaption>
+          <figcaption><a href="/hobbies#hiking">I took this picture</a></figcaption>
         </figure>
         <div class="folio-columns">
           <section class="folio-current" aria-labelledby="folio-current">

@@ -89,8 +89,8 @@ body:has(.folio) > .page-shell {
   max-width: 17ch;
   font: 400 clamp(1.35rem, 2.7vw, 2.25rem)/1.16 var(--display);
   letter-spacing: -.035em;
+  text-wrap: balance;
 }
-.folio-intro .folio-text-link { margin-top: 1rem; }
 .folio-landscape img {
   /* Trim the open sky while leaving room for the peaks and their reflection. */
   width: 100%;
