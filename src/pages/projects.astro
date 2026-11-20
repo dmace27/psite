@@ -6,6 +6,6 @@ import EmptyState from '../components/EmptyState.astro';
 import { projects, siteContent } from '../content/site';
 ---
 <SiteLayout title={`projects / ${siteContent.identity.name}`} description="Projects, experiments, and things built along the way.">
-  <PageHeading title="projects" description="thigs that i built" placeholder />
+  <PageHeading title="projects" description="thigs that i built" />
   {projects.length ? <ProjectList items={projects} headingLevel="h2" /> : <EmptyState message="no projects here yet." />}
 </SiteLayout>

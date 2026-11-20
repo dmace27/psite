@@ -26,6 +26,21 @@ export const siteContent = siteSchema.parse({
 });
 
 export const projects = entrySchema.array().parse([
-  { id: 'project-one', title: 'First project — placeholder', summary: 'A description of what you built, the problem it solves, and your contribution will go here.' },
-  { id: 'project-two', title: 'Second project — placeholder', summary: 'Another project description will go here. Real demo and source links can be added with the content.' },
+  {
+    id: 'alibi',
+    title: 'ALIBI',
+    summary: 'A sandbox for evaluating AI forensic investigators against simulated incidents, built with my team at HackPrinceton.',
+    links: [{ label: 'Devpost', href: 'https://devpost.com/software/alibi-dr1n9o' }],
+  },
+  {
+    id: 'rolespark',
+    title: 'RoleSpark',
+    summary: 'A project I’m currently working on.',
+  },
+  {
+    id: 'wiki',
+    title: 'Wiki',
+    summary: 'A knowledge compiler that turns PDFs, scans, and Markdown notes into an Obsidian wiki with citations back to the original sources.',
+    links: [{ label: 'GitHub', href: 'https://github.com/dmace27/wiki' }],
+  },
 ]);
