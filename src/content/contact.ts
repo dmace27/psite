@@ -16,18 +16,15 @@ export const contact = contactSchema.parse({
   email: 'danielmacebusiness@gmail.com',
 });
 
-export interface ContactMethod {
-  id: string;
+interface ProfileLink {
   label: string;
   href: string;
 }
 
-// Keep the footer in display order and omit any unconfigured destinations.
-const methods = [
-  { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : undefined },
-  { id: 'github', label: 'github', href: contact.github },
-  { id: 'linkedin', label: 'linkedin', href: contact.linkedin },
-  { id: 'x', label: 'X', href: contact.x },
+const profiles = [
+  { label: 'github', href: contact.github },
+  { label: 'linkedin', href: contact.linkedin },
+  { label: 'X', href: contact.x },
 ];
 
-export const footerContactMethods = methods.filter((method): method is ContactMethod => Boolean(method.href));
+export const footerProfileLinks = profiles.filter((profile): profile is ProfileLink => Boolean(profile.href));

@@ -99,4 +99,4 @@ Both pages use clearly labelled placeholders initially. Replace or remove those 
 
 ## Footer contact links
 
-GitHub, LinkedIn, X, and email appear beside the name in the site footer. Edit `src/content/contact.ts` to update those destinations. Social fields require full HTTP(S) URLs. The email field takes an address and creates its mailto link. The footer displays configured destinations.
+GitHub, LinkedIn, X, and email appear beside the name in the site footer. Edit `src/content/contact.ts` to update the contact details. Social fields require full HTTP(S) URLs. The email button copies the configured address to the clipboard. If copying is unavailable, the footer displays the address as selectable text.

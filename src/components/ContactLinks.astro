@@ -1,12 +1,88 @@
 ---
-import type { ContactMethod } from '../content/contact';
-interface Props { methods: ContactMethod[]; compactEmail?: boolean; }
-const { methods, compactEmail = false } = Astro.props;
+import { contact, footerProfileLinks } from '../content/contact';
 ---
 <nav class="footer-contact-links" aria-label="Contact links">
-  {methods.map((method) => (
-    <a href={method.href} aria-label={compactEmail && method.id === 'email' ? `Email ${method.label}` : undefined}>
-      {compactEmail && method.id === 'email' ? 'email' : method.label}
-    </a>
-  ))}
+  {contact.email && (
+    <span class="email-copy" data-email-copy>
+      <button type="button" aria-label="Copy email address" hidden>
+        <span data-copy-label>email</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <rect x="5" y="5" width="8.5" height="8.5" rx="1.5" />
+          <path d="M10.5 3.5v-.25A1.5 1.5 0 0 0 9 1.75H3.25a1.5 1.5 0 0 0-1.5 1.5V9a1.5 1.5 0 0 0 1.5 1.5h.25" />
+        </svg>
+      </button>
+      <span class="email-address" data-email-address>{contact.email}</span>
+      <span class="copy-status" role="status"></span>
+    </span>
+  )}
+  {footerProfileLinks.map(({ label, href }) => <a href={href}>{label}</a>)}
 </nav>
+
+<script>
+  for (const control of document.querySelectorAll('[data-email-copy]')) {
+    const button = control.querySelector('button');
+    const label = control.querySelector('[data-copy-label]');
+    const address = control.querySelector<HTMLElement>('[data-email-address]');
+    const status = control.querySelector('[role="status"]');
+    const email = address?.textContent;
+
+    // Keep the address selectable if JavaScript or the Clipboard API is unavailable.
+    if (!button || !label || !address || !status || !email || !navigator.clipboard?.writeText) continue;
+    address.hidden = true;
+    button.hidden = false;
+
+    let resetLabel: number | undefined;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        address.hidden = true;
+        label.textContent = 'copied';
+        status.textContent = 'Email address copied to the clipboard.';
+        window.clearTimeout(resetLabel);
+        resetLabel = window.setTimeout(() => {
+          label.textContent = 'email';
+          status.textContent = '';
+        }, 1800);
+      } catch {
+        window.clearTimeout(resetLabel);
+        label.textContent = 'email';
+        address.hidden = false;
+        status.textContent = 'Could not copy the email address. You can select and copy it manually.';
+      }
+    });
+  }
+</script>
+
+<style>
+  .email-copy {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem;
+    min-width: 0;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: .3em;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  button:hover {
+    color: var(--signal);
+    text-decoration: underline;
+  }
+
+  .email-address { overflow-wrap: anywhere; }
+
+  .copy-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+</style>

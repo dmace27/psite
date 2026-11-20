@@ -2,7 +2,6 @@
 import Shell from './Shell.astro';
 import Navigation from '../components/Navigation.astro';
 import ContactLinks from '../components/ContactLinks.astro';
-import { footerContactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
 import '../styles/folio.css';
 import '../styles/folio-interior.css';
@@ -18,7 +17,7 @@ const name = siteContent.identity.name.trim();
       <main id="main"><slot /></main>
       <footer class="folio-footer">
         <span>{name}</span>
-        <ContactLinks methods={footerContactMethods} compactEmail />
+        <ContactLinks />
         <a class="folio-back-to-top" href="#main">Back to top ↑</a>
       </footer>
     </div>

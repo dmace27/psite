@@ -1,7 +1,7 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import ContactLinks from '../components/ContactLinks.astro';
 import RichText from '../components/RichText.astro';
-import { footerContactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
 import '../styles/folio.css';
 
@@ -63,9 +63,7 @@ const destinations = [
 
       <footer class="folio-footer">
         <span>{name}</span>
-        <nav aria-label="Contact links">
-          {footerContactMethods.map((method) => <a href={method.href}>{method.id === 'email' ? 'email' : method.label}</a>)}
-        </nav>
+        <ContactLinks />
       </footer>
     </div>
   </div>
