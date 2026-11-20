@@ -5,7 +5,7 @@ const { methods, compactEmail = false } = Astro.props;
 ---
 <nav class="footer-contact-links" aria-label="Contact links">
   {methods.map((method) => (
-    <a href={method.href} aria-label={method.pending ? `${method.label} — contact details to come` : compactEmail && method.id === 'email' ? `Email ${method.label}` : undefined}>
+    <a href={method.href} aria-label={compactEmail && method.id === 'email' ? `Email ${method.label}` : undefined}>
       {compactEmail && method.id === 'email' ? 'email' : method.label}
     </a>
   ))}

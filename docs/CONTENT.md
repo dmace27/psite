@@ -97,6 +97,6 @@ The content schema is `src/content/hobbies-schema.ts`; `HobbyMedia` and `HobbyUp
 
 Both pages use clearly labelled placeholders initially. Replace or remove those specimens when adding your own choices. Omit unknown attribution instead of guessing. Lists render in authored order. Empty collections show a quiet empty state. `MediaSection` and `QuoteCard` provide the reusable presentation; `collections-schema.ts` validates content and links. Main navigation and the home exploration links include both pages.
 
-## Contact page and shared footer
+## Footer contact links
 
-`/contact` appears in the primary navigation. GitHub, LinkedIn, X, and email are also shown beside the name in every main site's footer. Edit `src/content/contact.ts` once to update both locations. Social fields require full HTTP(S) URLs; `email` takes an address and automatically creates its mailto link. Missing details lead to labelled contact-page slots rather than invented destinations. `ContactLinks.astro` renders the footer navigation.
+GitHub, LinkedIn, X, and email appear beside the name in the site footer. Edit `src/content/contact.ts` to update those destinations. Social fields require full HTTP(S) URLs. The email field takes an address and creates its mailto link. The footer displays configured destinations.

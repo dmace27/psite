@@ -15,7 +15,6 @@ export const siteContent = siteSchema.parse({
     { label: 'home', href: '/' },
     { label: 'projects', href: '/projects' },
     { label: 'other', href: '/other' },
-    { label: 'contact', href: '/contact' },
   ],
   sections: [
     { id: 'about', type: 'prose', title: 'about', paragraphs: [[{ text: 'I see myself as incredibly ambitious, hard working, motivated, ' }]] },

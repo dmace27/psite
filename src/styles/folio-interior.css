@@ -59,13 +59,13 @@
   font: 400 1.55rem/1.2 var(--display);
 }
 .folio-interior .section-index a:first-child { border-top: 1px solid var(--line); }
-.folio-interior :is(.project-list > li, .article-list li, .contact-method-list li) {
+.folio-interior :is(.project-list > li, .article-list li) {
   padding-block: 1.5rem;
   border: 0;
   border-top: 1px solid var(--line);
 }
 .folio-interior .project-rows > li + li { margin-top: 0; }
-.folio-interior :is(.project-title .project-item-heading, .article-list h2, .contact-method-list h2) {
+.folio-interior :is(.project-title .project-item-heading, .article-list h2) {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   line-height: 1.2;
@@ -73,8 +73,7 @@
 }
 .folio-interior .article-list h2 a { text-decoration: none; }
 .folio-interior .article-list h2 a:hover { text-decoration: underline; }
-.folio-interior :is(.article-list p, .media-note, .contact-method-list a, .quote-note, .hobby-updates p) { font-size: .9375rem; }
-.folio-interior .contact-method-list a { color: var(--accent); }
+.folio-interior :is(.article-list p, .media-note, .quote-note, .hobby-updates p) { font-size: .9375rem; }
 
 /* Keep longer pieces comfortable to read within the shared page margins. */
 .folio-interior .article-heading h1 {

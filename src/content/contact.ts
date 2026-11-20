@@ -8,7 +8,7 @@ const contactSchema = z.object({
   email: z.email().optional(),
 });
 
-/** Shared by the contact page and footer. Add your real details here when supplied. */
+/** Contact details shared by the site footers. */
 export const contact = contactSchema.parse({
   github: 'https://github.com/dmace27',
   linkedin: 'https://www.linkedin.com/in/daniel-mace27/',
@@ -20,21 +20,14 @@ export interface ContactMethod {
   id: string;
   label: string;
   href: string;
-  value?: string;
-  pending: boolean;
 }
 
-// Unconfigured footer links lead to their labelled contact-page slots instead of
-// invented accounts. Email becomes a mailto link once an address is supplied.
-export const contactMethods: ContactMethod[] = [
-  { id: 'github', label: 'github', href: contact.github ?? '/contact#github', value: contact.github, pending: !contact.github },
-  { id: 'linkedin', label: 'linkedin', href: contact.linkedin ?? '/contact#linkedin', value: contact.linkedin, pending: !contact.linkedin },
-  { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : '/contact#email', value: contact.email, pending: !contact.email },
-  { id: 'x', label: 'X', href: contact.x ?? '/contact#x', value: contact.x, pending: !contact.x },
+// Keep the footer in display order and omit any unconfigured destinations.
+const methods = [
+  { id: 'email', label: contact.email ?? 'email', href: contact.email ? `mailto:${contact.email}` : undefined },
+  { id: 'github', label: 'github', href: contact.github },
+  { id: 'linkedin', label: 'linkedin', href: contact.linkedin },
+  { id: 'x', label: 'X', href: contact.x },
 ];
 
-// Lead with email in the footer while keeping the contact page's order.
-export const footerContactMethods = [
-  ...contactMethods.filter((method) => method.id === 'email'),
-  ...contactMethods.filter((method) => method.id !== 'email'),
-];
+export const footerContactMethods = methods.filter((method): method is ContactMethod => Boolean(method.href));
