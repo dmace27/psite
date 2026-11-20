@@ -1,0 +1,1 @@
+After each completed code change, run npm run verify. If it passes, commit only the files changed for the task and push to the current branch’s upstream. Report the commit SHA and branch. If verification or the push fails, report what blocked it.

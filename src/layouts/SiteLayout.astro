@@ -2,7 +2,6 @@
 import Shell from './Shell.astro';
 import Navigation from '../components/Navigation.astro';
 import ContactLinks from '../components/ContactLinks.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
 import { footerContactMethods } from '../content/contact';
 import { siteContent } from '../content/site';
 import '../styles/folio.css';
@@ -20,10 +19,7 @@ const name = siteContent.identity.name.trim();
       <footer class="folio-footer">
         <span>{name}</span>
         <ContactLinks methods={footerContactMethods} compactEmail />
-        <div class="folio-footer-actions">
-          <a href="#main">Back to top ↑</a>
-          <ThemeToggle />
-        </div>
+        <a class="folio-back-to-top" href="#main">Back to top ↑</a>
       </footer>
     </div>
   </div>

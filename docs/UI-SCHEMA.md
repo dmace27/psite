@@ -4,14 +4,14 @@ The current framework follows Matthew Hamilton and David Chen's JetBrains Mono t
 
 ## Design tokens
 
-| Role | Light | Dark |
+| Role | Base token | Folio palette |
 | --- | --- | --- |
-| Paper | `#fafaf8` | `#101112` |
-| Surface | `#f0f0ee` | `#1b1d20` |
-| Ink | `#242528` | `#dedee0` |
-| Muted | `#74757a` | `#96979c` |
-| Line | `#e0e1e3` | `#2c2e32` |
-| Accent/focus | `#496aaa` | `#99afe0` |
+| Paper | `#fafaf8` | `#f7f2e8` |
+| Surface | `#f0f0ee` | `#eee6da` |
+| Ink | `#242528` | `#25211c` |
+| Muted | `#74757a` | `#60564b` |
+| Line | `#e0e1e3` | `#d2c5b5` |
+| Accent/focus | `#496aaa` | `#9b3527` |
 
 `--font-body` and `--font-heading` both point at `--mono`, whose first family is `JetBrains Mono Variable`. The font is imported locally through the installed Fontsource package, not a third-party font request. Weights: 400 body, 500 subheadings, 600 name. Sizes: 14px body; 15px introduction; 16px section titles; 32–52px name; 11px metadata. Outer width: 64rem; reading width: 52rem; desktop gutters: 32px; phone gutters: 20px. Main responsive breakpoint: 640px.
 
@@ -19,8 +19,8 @@ The current framework follows Matthew Hamilton and David Chen's JetBrains Mono t
 
 | Component | Inputs | Behaviour |
 | --- | --- | --- |
-| Shell | title, description, optional canonical; slot | Metadata, font, shared styles, theme initialization, skip link |
-| Navigation | links[], optional label | Compact wordmark, native anchors, persisted light/dark toggle |
+| Shell | title, description, optional canonical; slot | Metadata, font, shared light color scheme, skip link |
+| Navigation | links[], optional label | Compact wordmark and native anchors |
 | Intro | identity, optional headingLevel | Name, short introduction, small links; default h1 |
 | Section | id, title, optional eyebrow; slot | h2 with accessible section relationship |
 | RichText | spans[] | Escaped text, optional emphasis/link and bracketed highlight |
@@ -71,7 +71,7 @@ The new components reuse existing data types without prescribing required sectio
 
 ## Preview routes and interactions
 
-`/` demonstrates a possible personal page; `/ui` demonstrates the component API. Samples point to working local routes or anchors and are labelled as placeholders. Theme preference persists when storage is available; controls hide when JavaScript is unavailable. Details and links remain functional without JavaScript. Reduced-motion preference disables smooth scrolling. The final real-content route map must be verified before publication.
+`/` and `/ui` share the site's light palette. `/ui` demonstrates the component API. Samples point to working local routes or anchors and are labelled as placeholders. Details and links remain functional without JavaScript. Reduced-motion preference disables smooth scrolling. The final real-content route map must be verified before publication.
 
 ## Three-page site structure
 

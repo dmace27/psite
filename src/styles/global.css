@@ -28,21 +28,6 @@
   --space-12: 3rem;
   --space-16: 4rem;
 }
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --paper: #101112;
-  --surface: #1b1d20;
-  --ink: #dedee0;
-  --muted: #96979c;
-  --line: #2c2e32;
-  --accent: #99afe0;
-  --focus: #99afe0;
-  --sage: #263329;
-  --sand: #393425;
-  --rose: #3a282e;
-  --blue: #283245;
-}
-
 /* Base typography deliberately follows the two references, not the old serif study. */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
@@ -78,14 +63,12 @@ img { display: block; max-width: 100%; height: auto; }
 .header-controls nav a:hover { color: var(--ink); text-decoration: underline; }
 .icon-button { display: inline-grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 0; border-radius: var(--radius); }
 .icon-button:hover { color: var(--accent); background: var(--surface); }
-.theme-toggle { font-size: .875rem; }
 .intro { padding: 3.5rem 0 1rem; }
 .intro-title-large { font-size: clamp(2.75rem, 7vw, 4.5rem); }
 .intro p { max-width: var(--reading-width); margin-top: 1.2rem; font-size: .9375rem; line-height: 1.85; }
 .intro .link-group { margin-top: 1.4rem; }
 /* A warmer yellow emphasizes the university in the introduction. */
 .intro .tone-sand { background: #fff0a6; }
-:root[data-theme='dark'] .intro .tone-sand { background: #66551f; }
 .link-group { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; margin-top: .9rem; }
 .link-group a, .text-link { font-size: .75rem; color: var(--muted); }
 .link-group a:hover { color: var(--accent); }
@@ -221,7 +204,7 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 @media print {
-  .theme-toggle, .photo-controls { display: none !important; }
+  .photo-controls { display: none !important; }
   .page-shell { max-width: none; }
 }
 
@@ -308,7 +291,6 @@ details ul { padding-left: 1.25rem; font-size: .8125rem; }
 .quote-note { margin: 1rem 0 0 1.25rem; font-size: .8125rem; max-width: var(--reading-width); }
 @media (max-width: 640px) {
   .header-controls nav { flex: 1; min-width: 0; }
-  .theme-toggle { flex-shrink: 0; }
 }
 
 /* Contact details share one source, displayed beside the name on every site page. */

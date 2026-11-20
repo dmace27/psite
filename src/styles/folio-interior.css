@@ -9,33 +9,12 @@
   --reading-width: 42rem;
 }
 
-:root[data-theme='dark'] .folio-interior {
-  color-scheme: dark;
-  --canvas: #201c18;
-  --text: #f4ede1;
-  --subtle: #c7b8a6;
-  --rule: #54463b;
-  --signal: #f0a493;
-  --surface: #302822;
-}
-
 .folio-interior .folio-header a[aria-current] {
   color: var(--accent);
   text-decoration: underline;
 }
 
 .folio-interior .footer-contact-links { gap: .45rem clamp(.9rem, 3vw, 2rem); }
-.folio-footer-actions { display: flex; align-items: center; gap: 1rem; }
-.folio-interior .theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-.folio-interior .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 /* Large serif titles and short introductions follow the hierarchy on the homepage. */
 .folio-interior .page-heading {
@@ -122,5 +101,5 @@
 
 @media (max-width: 520px) {
   .folio-interior .folio-footer { align-items: flex-start; }
-  .folio-footer-actions { width: 100%; justify-content: space-between; }
+  .folio-back-to-top { width: 100%; }
 }

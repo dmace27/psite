@@ -1,4 +1,4 @@
-/* The Folio homepage uses its own typography and color palette. */
+/* The landing page and interior pages share the Folio typography and palette. */
 body:has(.folio) > .page-shell {
   max-width: none;
   padding: 0;
@@ -11,7 +11,6 @@ body:has(.folio) > .page-shell {
   --rule: #d2c5b5;
   --signal: #9b3527;
   --display: 'Baskervville', Georgia, serif;
-  color-scheme: light;
   min-height: 100svh;
   background: var(--canvas);
   color: var(--text);
