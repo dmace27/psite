@@ -35,7 +35,8 @@ export const projects = entrySchema.array().parse([
   {
     id: 'rolespark',
     title: 'RoleSpark',
-    summary: 'A project I’m currently working on.',
+    summary: 'A hiring pilot for defining role profiles, inviting candidates to opt-in assessments, and reviewing assessment reports.',
+    links: [{ label: 'GitHub', href: 'https://github.com/dmace27/iopsych' }],
   },
   {
     id: 'wiki',
