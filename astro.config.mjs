@@ -5,6 +5,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   output: 'static',
   markdown: {
-    shikiConfig: { theme: 'github-light' },
+    shikiConfig: {
+      themes: { light: 'github-light', dark: 'github-dark' },
+    },
   },
 });

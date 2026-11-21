@@ -4,14 +4,14 @@ The current framework follows Matthew Hamilton and David Chen's JetBrains Mono t
 
 ## Design tokens
 
-| Role | Base token | Folio palette |
-| --- | --- | --- |
-| Paper | `#fafaf8` | `#f7f2e8` |
-| Surface | `#f0f0ee` | `#eee6da` |
-| Ink | `#242528` | `#25211c` |
-| Muted | `#74757a` | `#60564b` |
-| Line | `#e0e1e3` | `#d2c5b5` |
-| Accent/focus | `#496aaa` | `#9b3527` |
+| Role | Base light token | Folio light | Folio dark |
+| --- | --- | --- | --- |
+| Paper | `#fafaf8` | `#f7f2e8` | `#201c18` |
+| Surface | `#f0f0ee` | `#eee6da` | `#302822` |
+| Ink | `#242528` | `#25211c` | `#f4ede1` |
+| Muted | `#74757a` | `#60564b` | `#c7b8a6` |
+| Line | `#e0e1e3` | `#d2c5b5` | `#645447` |
+| Accent/focus | `#496aaa` | `#9b3527` | `#f0a493` |
 
 `--font-body` and `--font-heading` both point at `--mono`, whose first family is `JetBrains Mono Variable`. The font is imported locally through the installed Fontsource package, not a third-party font request. Weights: 400 body, 500 subheadings, 600 name. Sizes: 14px body; 15px introduction; 16px section titles; 32–52px name; 11px metadata. Outer width: 64rem; reading width: 52rem; desktop gutters: 32px; phone gutters: 20px. Main responsive breakpoint: 640px.
 
@@ -19,8 +19,8 @@ The current framework follows Matthew Hamilton and David Chen's JetBrains Mono t
 
 | Component | Inputs | Behaviour |
 | --- | --- | --- |
-| Shell | title, description, optional canonical; slot | Metadata, font, shared light color scheme, skip link |
-| Navigation | links[], optional label | Compact wordmark and native anchors |
+| Shell | title, description, optional canonical; slot | Metadata, font, saved color scheme, skip link |
+| Navigation | name | Compact wordmark, native anchors, and the light/dark switch |
 | Intro | identity, optional headingLevel | Name, short introduction, small links; default h1 |
 | Section | id, title, optional eyebrow; slot | h2 with accessible section relationship |
 | RichText | spans[] | Escaped text, optional emphasis/link and bracketed highlight |
@@ -71,7 +71,7 @@ The new components reuse existing data types without prescribing required sectio
 
 ## Preview routes and interactions
 
-`/` and `/ui` share the site's light palette. `/ui` demonstrates the component API. Samples point to working local routes or anchors and are labelled as placeholders. Details and links remain functional without JavaScript. Reduced-motion preference disables smooth scrolling. The final real-content route map must be verified before publication.
+`/` and `/ui` share the site's theme. Light is the default. `/ui` demonstrates the component API. Samples point to working local routes or anchors and are labelled as placeholders. Details and links remain functional without JavaScript. Reduced-motion preference disables smooth scrolling. The final real-content route map must be verified before publication.
 
 ## Three-page site structure
 

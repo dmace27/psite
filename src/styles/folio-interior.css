@@ -5,7 +5,7 @@
   --muted: var(--subtle);
   --line: var(--rule);
   --accent: var(--signal);
-  --surface: #eee6da;
+  --surface: var(--panel);
   --reading-width: 42rem;
 }
 
@@ -88,6 +88,13 @@
 .folio-interior .article-body h3 { font-size: 1.35rem; }
 .folio-interior .article-body pre,
 .folio-interior .article-body pre code { font: .875rem/1.6 var(--mono); }
+
+/* Shiki emits light colors inline and exposes the matching dark colors as tokens. */
+:root[data-theme='dark'] .article-body .astro-code,
+:root[data-theme='dark'] .article-body .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
 
 .folio-interior .hobby-media,
 .folio-interior .hobby-updates { margin-top: 1.5rem; }

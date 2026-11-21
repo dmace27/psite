@@ -12,7 +12,7 @@
 | `/writing/second-article` | Second placeholder article                                      |
 | `/ui`                     | Retained component reference, separate from the main navigation |
 
-All main pages share navigation, a light palette and a footer. Article pages keep writing highlighted as their current section and have a back-to-index link. The same reading layout handles short notes and longer essays.
+All main pages share navigation, light and dark palettes, and a footer. The theme switch beside Other saves the selected palette in the browser. Article pages keep writing highlighted as their current section and have a back-to-index link. The same reading layout handles short notes and longer essays.
 
 ## Home and projects
 

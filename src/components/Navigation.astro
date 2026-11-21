@@ -1,4 +1,6 @@
 ---
+import ThemeSwitch from './ThemeSwitch.astro';
+
 interface Props { name: string }
 const { name } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -7,7 +9,6 @@ const links = [
   { label: 'Projects', href: '/projects' },
   { label: 'Writing', href: '/writing' },
   { label: 'Hobbies', href: '/hobbies' },
-  { label: 'Other', href: '/other' },
 ];
 
 function activeLink(href: string) {
@@ -19,8 +20,12 @@ function activeLink(href: string) {
 }
 ---
 <header class="folio-header">
-  <a class="folio-wordmark" href="/" aria-label={`${name}, home`}>DM</a>
+  <a class="folio-wordmark" href="/" aria-label={`${name}, home`} aria-current={activeLink('/')}>DM</a>
   <nav aria-label="Main navigation">
     {links.map(({ label, href }) => <a href={href} aria-current={activeLink(href)}>{label}</a>)}
+    <span class="folio-nav-end">
+      <a href="/other" aria-current={activeLink('/other')}>Other</a>
+      <ThemeSwitch />
+    </span>
   </nav>
 </header>

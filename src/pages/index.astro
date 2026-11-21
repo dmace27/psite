@@ -2,6 +2,7 @@
 import Shell from '../layouts/Shell.astro';
 import ContactLinks from '../components/ContactLinks.astro';
 import GitHubActivity from '../components/GitHubActivity.astro';
+import Navigation from '../components/Navigation.astro';
 import RichText from '../components/RichText.astro';
 import { siteContent } from '../content/site';
 import '../styles/folio.css';
@@ -10,23 +11,11 @@ const name = siteContent.identity.name.trim();
 const introduction = siteContent.identity.introduction;
 const current = siteContent.sections.find((section) => section.id === 'currently' && section.type === 'list');
 const currentItems = current?.type === 'list' ? current.items : [];
-
-const destinations = [
-  { label: 'Projects', href: '/projects' },
-  { label: 'Writing', href: '/writing' },
-  { label: 'Hobbies', href: '/hobbies' },
-  { label: 'Other', href: '/other' },
-];
 ---
 <Shell title={name} description={siteContent.metadata.description}>
   <div class="folio folio-home">
     <div class="folio-wrap">
-      <header class="folio-header">
-        <a class="folio-wordmark" href="/" aria-label={`${name}, home`} aria-current="page">DM</a>
-        <nav aria-label="Main navigation">
-          {destinations.map((link) => <a href={link.href}>{link.label}</a>)}
-        </nav>
-      </header>
+      <Navigation name={name} />
 
       <main id="main">
         <section class="folio-hero" aria-labelledby="folio-title">

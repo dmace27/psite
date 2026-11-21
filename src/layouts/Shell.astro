@@ -12,6 +12,62 @@ const { title, description, canonical } = Astro.props;
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="color-scheme" content="light" />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const scheme = document.querySelector('meta[name="color-scheme"]');
+        const storageKey = 'folio-theme';
+
+        function applyTheme(theme) {
+          root.dataset.theme = theme;
+          scheme.setAttribute('content', theme);
+        }
+
+        function restoreTheme() {
+          try {
+            applyTheme(localStorage.getItem(storageKey) === 'dark' ? 'dark' : 'light');
+          } catch {
+            // Light is the default, and the switch still works when storage is blocked.
+          }
+        }
+
+        // Apply the saved choice before the browser paints the page.
+        restoreTheme();
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.querySelector('[data-theme-switch]');
+          if (!button) return;
+
+          function updateSwitch() {
+            button.setAttribute('aria-checked', String(root.dataset.theme === 'dark'));
+          }
+
+          function syncTheme() {
+            restoreTheme();
+            updateSwitch();
+          }
+
+          updateSwitch();
+          button.hidden = false;
+          button.addEventListener('click', () => {
+            const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme(theme);
+            updateSwitch();
+            try {
+              localStorage.setItem(storageKey, theme);
+            } catch {
+              // The selected theme still applies to the current page.
+            }
+          });
+
+          // A restored history entry or another tab may have an older theme.
+          window.addEventListener('pageshow', syncTheme);
+          window.addEventListener('storage', (event) => {
+            if (event.key === storageKey || event.key === null) syncTheme();
+          });
+        });
+      })();
+    </script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

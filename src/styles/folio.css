@@ -1,15 +1,42 @@
-/* The landing page and interior pages share the Folio typography and palette. */
+/* The landing page and interior pages share the Folio typography and palettes. */
+:root {
+  --canvas: #f7f2e8;
+  --text: #25211c;
+  --subtle: #60564b;
+  --rule: #d2c5b5;
+  --signal: #9b3527;
+  --panel: #eee6da;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --canvas: #201c18;
+  --text: #f4ede1;
+  --subtle: #c7b8a6;
+  --rule: #645447;
+  --signal: #f0a493;
+  --panel: #302822;
+
+  /* Base components and the skip link also need contrast outside the Folio wrapper. */
+  --paper: var(--canvas);
+  --ink: var(--text);
+  --muted: var(--subtle);
+  --line: var(--rule);
+  --accent: var(--signal);
+  --surface: var(--panel);
+  --focus: var(--signal);
+  --sage: #263329;
+  --sand: #393425;
+  --rose: #3a282e;
+  --blue: #283245;
+}
+
 body:has(.folio) > .page-shell {
   max-width: none;
   padding: 0;
 }
 
 .folio {
-  --canvas: #f7f2e8;
-  --text: #25211c;
-  --subtle: #60564b;
-  --rule: #d2c5b5;
-  --signal: #9b3527;
   --display: 'Baskervville', Georgia, serif;
   min-height: 100svh;
   background: var(--canvas);
@@ -43,7 +70,17 @@ body:has(.folio) > .page-shell {
 .folio-header nav, .folio-footer nav { display: flex; flex-wrap: wrap; gap: .45rem clamp(.9rem, 3vw, 2rem); }
 .folio-header a, .folio-footer a { text-decoration: none; }
 .folio-header nav a:hover, .folio-footer a:hover { text-decoration: underline; }
-.folio-header nav { font: 400 .8rem/1.5 var(--mono); }
+.folio-header nav {
+  --nav-gap: clamp(.9rem, 3vw, 2rem);
+  align-items: center;
+  column-gap: var(--nav-gap);
+  font: 400 .8rem/1.5 var(--mono);
+}
+.folio-nav-end {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nav-gap);
+}
 .folio-wordmark { font: 700 1.25rem/1.2 var(--display); letter-spacing: -.06em; }
 .folio-footer {
   margin-top: clamp(2.5rem, 6vw, 5.5rem);
@@ -119,6 +156,6 @@ body:has(.folio) > .page-shell {
 
 @media (max-width: 520px) {
   .folio-header { gap: .75rem; }
-  .folio-header nav { gap: .35rem .75rem; }
+  .folio-header nav { --nav-gap: .75rem; row-gap: .35rem; }
   .folio-hero, .folio-columns { grid-template-columns: 1fr; }
 }
