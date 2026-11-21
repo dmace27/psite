@@ -1,0 +1,113 @@
+---
+import { contact } from '../content/contact';
+import savedCalendar from '../content/github-contributions.json';
+import { contributionDate, fetchContributionCalendar } from '../lib/github-contributions';
+
+const profile = contact.github;
+const account = profile && new URL(profile).pathname.split('/').filter(Boolean)[0];
+const calendar = account ? await fetchContributionCalendar(account).catch(() => {
+  // Keep the last verified calendar available for offline builds and GitHub outages.
+  return account.toLowerCase() === savedCalendar.account ? savedCalendar : undefined;
+}) : undefined;
+
+const start = calendar ? contributionDate(calendar.startDate, 0) : undefined;
+const end = calendar ? contributionDate(calendar.startDate, calendar.levels.length - 1) : undefined;
+const firstWeekday = start?.getUTCDay() ?? 0;
+const weeks = Math.ceil((firstWeekday + (calendar?.levels.length ?? 0)) / 7);
+const monthLabel = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+const dayLabel = new Intl.DateTimeFormat('en', { dateStyle: 'long', timeZone: 'UTC' });
+const levels = ['No contributions', 'Low activity', 'Moderate activity', 'High activity', 'Very high activity'];
+---
+{profile && (
+  <section class="github-activity" aria-labelledby="github-activity-heading">
+    <h2 id="github-activity-heading" class="folio-label"><a href={profile}>GitHub activity</a></h2>
+    {calendar && start && end && (
+      <div class="contribution-calendar">
+        <div
+          class="contribution-grid"
+          style={`--weeks: ${weeks}`}
+          role="img"
+          aria-label={`GitHub contribution heat map from ${dayLabel.format(start)} through ${dayLabel.format(end)}`}
+        >
+          {/* Leave space for days before the first date so weeks align Sunday through Saturday. */}
+          {Array.from({ length: firstWeekday }, () => <span aria-hidden="true"></span>)}
+          {calendar.levels.map((level, offset) => (
+            <span
+              class="contribution-day"
+              data-level={level}
+              title={`${dayLabel.format(contributionDate(calendar.startDate, offset))}: ${levels[level]}`}
+            ></span>
+          ))}
+        </div>
+        <div class="contribution-caption">
+          <span>{monthLabel.formatRange(start, end)}</span>
+          <div class="contribution-legend" aria-label="Activity intensity from less to more">
+            <span>Less</span>
+            {levels.map((_, level) => <span class="contribution-day" data-level={level} aria-hidden="true"></span>)}
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .github-activity {
+    min-width: 0;
+  }
+
+  .github-activity h2 a {
+    text-decoration: none;
+  }
+
+  .github-activity h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .contribution-calendar {
+    margin-top: .8rem;
+  }
+
+  .contribution-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--weeks), minmax(0, 1fr));
+    grid-template-rows: repeat(7, min-content);
+    grid-auto-flow: column;
+    gap: clamp(2px, .3vw, 4px);
+  }
+
+  .contribution-day {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    background: #e9dfd1;
+  }
+
+  [data-level="1"] { background: #e6bcaa; }
+  [data-level="2"] { background: #d28d77; }
+  [data-level="3"] { background: #b9604e; }
+  [data-level="4"] { background: var(--signal); }
+
+  .contribution-caption,
+  .contribution-legend {
+    display: flex;
+    align-items: center;
+  }
+
+  .contribution-caption {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .3rem .75rem;
+    margin-top: .4rem;
+    color: var(--subtle);
+    font: .69rem/1.5 var(--mono);
+  }
+
+  .contribution-legend {
+    gap: 3px;
+  }
+
+  .contribution-legend .contribution-day {
+    width: .5rem;
+  }
+</style>

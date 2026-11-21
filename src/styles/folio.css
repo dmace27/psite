@@ -112,17 +112,6 @@ body:has(.folio) > .page-shell {
   padding-top: 1rem;
 }
 .folio-current .folio-current-list { margin-top: .8rem; color: var(--subtle); }
-.folio-links { list-style: none; }
-.folio-links a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: .55rem;
-  border-bottom: 1px solid var(--rule);
-  text-decoration: none;
-  font: 400 1.45rem/1.2 var(--display);
-}
 
 @media (max-width: 760px) {
   .folio-hero, .folio-columns { grid-template-columns: 1fr 1fr; }

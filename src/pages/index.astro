@@ -1,6 +1,7 @@
 ---
 import Shell from '../layouts/Shell.astro';
 import ContactLinks from '../components/ContactLinks.astro';
+import GitHubActivity from '../components/GitHubActivity.astro';
 import RichText from '../components/RichText.astro';
 import { siteContent } from '../content/site';
 import '../styles/folio.css';
@@ -50,14 +51,7 @@ const destinations = [
               {currentItems.map((item) => <li><RichText spans={item} /></li>)}
             </ul>
           </section>
-          <section aria-labelledby="folio-explore">
-            <h2 id="folio-explore" class="folio-label">Explore the site</h2>
-            <ul class="folio-links">
-              {destinations.slice(0, 3).map((link) => <li>
-                <a href={link.href}><span>{link.label}</span><span aria-hidden="true">↗</span></a>
-              </li>)}
-            </ul>
-          </section>
+          <GitHubActivity />
         </div>
       </main>
 
