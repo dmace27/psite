@@ -19,7 +19,7 @@ export const siteContent = siteSchema.parse({
   sections: [
     { id: 'about', type: 'prose', title: 'about', paragraphs: [[{ text: 'I see myself as incredibly ambitious, hard working, motivated, ' }]] },
     { id: 'currently', type: 'list', title: 'currently', items: [
-      [{ text: 'working on ' }, { text: 'RoleSpark', tone: 'blue' }, { text: '.' }],
+      [{ text: 'working on building an inference engine for ' }, { text: 'Qwen3-0.6B', tone: 'blue' }, { text: '.' }],
       [{ text: 'learning about ' }, { text: 'inference and attention', tone: 'sand' }, { text: '.' }],
     ] },
   ],
