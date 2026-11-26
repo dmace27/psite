@@ -8,6 +8,6 @@ import { getWriting } from '../../lib/writing';
 const articles = await getWriting();
 ---
 <SiteLayout title={`writing / ${siteContent.identity.name}`} description="Essays, notes, and ideas worth keeping.">
-  <PageHeading title="writing" description="Essays, notes, and ideas worth keeping." placeholder />
+  <PageHeading title="writing" description="Essays, notes, and ideas worth keeping." />
   {articles.length ? <ArticleList articles={articles} /> : <EmptyState message="nothing published yet." />}
 </SiteLayout>
