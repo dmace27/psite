@@ -38,6 +38,12 @@ export const projects = entrySchema.array().parse([
     links: [{ label: 'Devpost', href: 'https://devpost.com/software/alibi-dr1n9o' }],
   },
   {
+    id: 'rally',
+    title: 'Rally',
+    summary: 'A two-player 3D ping-pong game that uses webcam hand tracking to control the paddles. My team placed first overall at the General Catalyst hackathon.',
+    links: [{ label: 'GitHub', href: 'https://github.com/nicholaskim17/rally' }],
+  },
+  {
     id: 'rolespark',
     title: 'RoleSpark',
     summary: 'A hiring pilot for defining role profiles, inviting candidates to opt-in assessments, and reviewing assessment reports.',
