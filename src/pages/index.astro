@@ -19,7 +19,7 @@ const currentItems = current?.type === 'list' ? current.items : [];
 
       <main id="main">
         <section class="folio-hero" aria-labelledby="folio-title">
-          <h1 id="folio-title">Daniel<br />Mace</h1>
+          <h1 id="folio-title">{name}</h1>
           <div class="folio-intro">
             {introduction.map((paragraph) => <p><RichText spans={paragraph} /></p>)}
           </div>
