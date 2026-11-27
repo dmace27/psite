@@ -24,7 +24,7 @@ const { Content } = await render(article);
       {article.data.placeholder && <span class="meta placeholder-label">placeholder article / content to come</span>}
       <h1>{article.data.title}</h1>
       {article.data.publishedAt && <time class="meta" datetime={article.data.publishedAt}>{formatArticleDate(article.data.publishedAt)}</time>}
-      <p class="muted">{article.data.description}</p>
+      {article.data.description && <p class="muted">{article.data.description}</p>}
     </header>
     <div class="article-body"><Content /></div>
     <nav class="article-pagination" aria-label="More writing">

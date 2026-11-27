@@ -11,7 +11,7 @@ const { articles } = Astro.props;
         <h2><a href={`/writing/${article.id}`}>{article.data.title}</a></h2>
         {article.data.publishedAt && <time class="meta" datetime={article.data.publishedAt}>{formatArticleDate(article.data.publishedAt)}</time>}
       </div>
-      <p class="muted">{article.data.description}</p>
+      {article.data.description && <p class="muted">{article.data.description}</p>}
       {article.data.placeholder && <span class="meta">placeholder article</span>}
     </article>
   </li>)}
