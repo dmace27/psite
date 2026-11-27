@@ -6,8 +6,9 @@ import EmptyState from '../../components/EmptyState.astro';
 import { siteContent } from '../../content/site';
 import { getWriting } from '../../lib/writing';
 const articles = await getWriting();
+const description = 'letters and words that i put together';
 ---
-<SiteLayout title={`writing / ${siteContent.identity.name}`} description="Essays, notes, and ideas worth keeping.">
-  <PageHeading title="writing" description="Essays, notes, and ideas worth keeping." />
+<SiteLayout title={`writing / ${siteContent.identity.name}`} description={description}>
+  <PageHeading title="writing" description={description} />
   {articles.length ? <ArticleList articles={articles} /> : <EmptyState message="nothing published yet." />}
 </SiteLayout>
