@@ -10,12 +10,12 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --canvas: #201c18;
-  --text: #f4ede1;
-  --subtle: #c7b8a6;
-  --rule: #645447;
-  --signal: #f0a493;
-  --panel: #302822;
+  --canvas: #181a1e;
+  --text: #eef0f3;
+  --subtle: #b5bdc9;
+  --rule: #4b5260;
+  --signal: #acc4ff;
+  --panel: #23262c;
 
   /* Base components and the skip link also need contrast outside the Folio wrapper. */
   --paper: var(--canvas);
@@ -25,10 +25,10 @@
   --accent: var(--signal);
   --surface: var(--panel);
   --focus: var(--signal);
-  --sage: #263329;
-  --sand: #393425;
-  --rose: #3a282e;
-  --blue: #283245;
+  --sage: #243530;
+  --sand: #353743;
+  --rose: #3a2d3b;
+  --blue: #293850;
 }
 
 body:has(.folio) > .page-shell {
