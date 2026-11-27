@@ -5,24 +5,22 @@ import { hobbiesSchema } from './hobbies-schema';
  */
 export const hobbies = hobbiesSchema.parse([
   {
-    id: 'soccer' ,
+    id: 'soccer',
     title: 'soccer',
-    placeholder: false,
-    paragraphs: [[{ text: 'I grew' }]],
-    updates: [{ title: 'recently — placeholder', detail: 'A recent session, personal milestone, or something you’re practicing can go here.' }],
+    paragraphs: [[{
+      text: 'I started playing soccer at age 8. From the very start, I loved playing goalkeeper. '
+        + 'Most recently, I played for Keystone FC in MLS NEXT (the highest level of youth club soccer in the US). '
+        + 'I also captained my high school team and earned first-team all-county honors two years in a row. '
+        + 'Now I just play intramurals at Waterloo.',
+    }]],
   },
   {
     id: 'hiking',
     title: 'hiking',
-    placeholder: false,
-    paragraphs: [[{ text: 'Music, art, photography, cooking, or another creative outlet. Use this space for the part of the hobby that feels most like you.' }]],
-    photos: [{
-      src: '/images/hobby-placeholder.svg',
-      alt: 'A labelled placeholder for your own hobby photo or artwork.',
-      caption: 'Your own photo or artwork can go here.',
-      width: 960,
-      height: 640,
-    }],
+    paragraphs: [[{
+      text: 'I enjoy touching grass and connecting with nature. My family and I go on many hiking trips. '
+        + 'Most recently, we hiked in Grand Teton National Park and Yellowstone National Park.',
+    }]],
   },
   {
     id: 'gym',
