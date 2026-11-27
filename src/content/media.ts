@@ -3,7 +3,7 @@ import { mediaGroupsSchema } from './collections-schema';
 /** Media picks grouped in the order they appear on the page. */
 export const mediaGroups = mediaGroupsSchema.parse([
   { id: 'music', title: 'music', items: [
-    { title: 'Cowboys and Angels' },
+    { title: 'Cowboys and Angels', creator: 'George Michael' },
     { title: 'Cannock Chase', creator: 'Labi Siffre' },
     { title: "Boys Don't Cry", creator: 'The Cure' },
     { title: 'Pocketful of Sunshine', creator: 'Natasha Bedingfield' },
@@ -12,7 +12,7 @@ export const mediaGroups = mediaGroupsSchema.parse([
     { title: 'D>E>A>T>H>M>E>T>A>L', creator: 'Panchiko' },
     { title: 'Cherish the Day', creator: 'Sade' },
     { title: 'Leave You Alone', creator: 'Sea of Lettuce' },
-    { title: 'Wish You Here' },
+    { title: 'Wish You Were Here', creator: 'Pink Floyd' },
     { title: 'Last Train to London', creator: 'Electric Light Orchestra' },
     { title: 'Lovefool', creator: 'The Cardigans' },
     { title: 'Oh! Tengo Suerte', creator: 'Masayoshi Takanaka' },
