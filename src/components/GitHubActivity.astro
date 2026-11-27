@@ -70,14 +70,16 @@ const levels = ['No contributions', 'Low activity', 'Moderate activity', 'High a
     --activity-1: #e6bcaa;
     --activity-2: #d28d77;
     --activity-3: #b9604e;
+    --activity-4: var(--signal);
     margin-top: .8rem;
   }
 
   :global([data-theme='dark']) .contribution-calendar {
     --activity-0: #282d37;
-    --activity-1: #354d76;
-    --activity-2: #4b6ba4;
-    --activity-3: #7797d6;
+    --activity-1: #683a31;
+    --activity-2: #9a5547;
+    --activity-3: #cb7966;
+    --activity-4: #f0a493;
   }
 
   .contribution-grid {
@@ -97,7 +99,7 @@ const levels = ['No contributions', 'Low activity', 'Moderate activity', 'High a
   [data-level="1"] { background: var(--activity-1); }
   [data-level="2"] { background: var(--activity-2); }
   [data-level="3"] { background: var(--activity-3); }
-  [data-level="4"] { background: var(--signal); }
+  [data-level="4"] { background: var(--activity-4); }
 
   .contribution-caption,
   .contribution-legend {
