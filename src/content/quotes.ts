@@ -33,10 +33,6 @@ export const quotes = quotesSchema.parse([
     source: 'Black Clover',
   },
   {
-    id: 'ambition-and-agency',
-    text: 'Ambition without agency is just a dream.',
-  },
-  {
     id: 'an-ambition-of-your-choosing',
     text: 'What a privilege it is to be exhausted by an ambition of your choosing.',
   },
