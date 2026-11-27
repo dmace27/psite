@@ -43,15 +43,15 @@ export const hobbies = hobbiesSchema.parse([
     }]],
     photos: [
       {
-        src: '/images/hobbies/hiking-3626.webp',
-        alt: 'A childhood photo in front of turquoise water, a pine forest, and distant mountains.',
-        width: 1297,
-        height: 1440,
-      },
-      {
         src: '/images/hobbies/hiking-3772.webp',
         alt: 'A hiker with a blue backpack follows a rocky trail beneath steep mountain peaks.',
         width: 1080,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/hiking-3626.webp',
+        alt: 'A childhood photo in front of turquoise water, a pine forest, and distant mountains.',
+        width: 1297,
         height: 1440,
       },
       {
