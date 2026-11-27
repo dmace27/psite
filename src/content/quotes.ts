@@ -3,6 +3,12 @@ import { quotesSchema } from './collections-schema';
 /** Quotes appear on the page in the order listed here. */
 export const quotes = quotesSchema.parse([
   {
+    id: 'keep-moving-forward',
+    text: 'Keep moving forward.',
+    attribution: 'Eren Yeager',
+    source: 'Attack on Titan',
+  },
+  {
     id: 'never-lose-again',
     text: 'From this moment forward, I will never lose again.',
     attribution: 'Roronoa Zoro',
@@ -19,10 +25,6 @@ export const quotes = quotesSchema.parse([
     text: 'Surpass your limits.',
     attribution: 'Yami Sukehiro',
     source: 'Black Clover',
-  },
-  {
-    id: 'keep-moving-forward',
-    text: 'Keep moving forward.',
   },
   {
     id: 'ambition-and-agency',
