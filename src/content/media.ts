@@ -37,6 +37,7 @@ export const mediaGroups = mediaGroupsSchema.parse([
     { title: 'Introduction to Algorithms', creator: 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein' },
     { title: 'Introduction to Probability', creator: 'Joseph K. Blitzstein and Jessica Hwang' },
     { title: 'Silent Spring', creator: 'Rachel Carson' },
+    { title: 'Deep Work', creator: 'Cal Newport' },
   ] },
   { id: 'pieces-of-writing', title: 'pieces of writing', items: [
     {
