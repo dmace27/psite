@@ -44,17 +44,6 @@ export const quotes = quotesSchema.parse([
     text: 'Stand so tall others want to grow too.',
   },
   {
-    id: 'clinging-to-reason',
-    text: 'Reason exists for those who cannot live without clinging to it.',
-  },
-  {
-    id: 'winning-is-the-only-thing',
-    text: 'Just fighting for its own sake is meaningless. A mere survival is not enough of a purpose. '
-      + 'I wanna win this. Winning is the only thing.',
-    attribution: 'Ichigo Kurosaki',
-    source: 'Bleach',
-  },
-  {
     id: 'everything-i-wished-for',
     text: 'This is everything I wished for.',
     attribution: 'Wemby',
