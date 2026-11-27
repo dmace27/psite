@@ -7,7 +7,7 @@ import { hobbies } from '../content/hobbies';
 import { siteContent } from '../content/site';
 ---
 <SiteLayout title={`hobbies / ${siteContent.identity.name}`} description="Interests, routines, and the things enjoyed outside of work.">
-  <PageHeading title="hobbies" description="A little more about life outside of work." placeholder={hobbies.some((hobby) => hobby.placeholder)} />
+  <PageHeading title="hobbies" description="other things that I happen to do" placeholder={hobbies.some((hobby) => hobby.placeholder)} />
   {hobbies.length > 1 && <nav class="hobby-index" aria-label="Hobbies on this page">{hobbies.map((hobby) => <a href={`#${hobby.id}`}>{hobby.title}</a>)}</nav>}
   {hobbies.length ? hobbies.map((hobby) => <HobbySection hobby={hobby} />) : <EmptyState message="more interests to come." />}
 </SiteLayout>
