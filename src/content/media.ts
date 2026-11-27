@@ -32,6 +32,7 @@ export const mediaGroups = mediaGroupsSchema.parse([
     { title: 'You Can See Everything' },
   ] },
   { id: 'books', title: 'books', items: [
+    { title: 'Berserk', creator: 'Kentaro Miura' },
     { title: 'Atomic Habits', creator: 'James Clear' },
     { title: 'Essentialism', creator: 'Greg McKeown' },
     { title: 'Introduction to Algorithms', creator: 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein' },
