@@ -1,17 +1,59 @@
 import { quotesSchema } from './collections-schema';
 
-/** Layout samples only, not quotations attributed to real people. */
+/** Quotes appear on the page in the order listed here. */
 export const quotes = quotesSchema.parse([
   {
-    id: 'first-quote',
-    text: 'Your first quote will go here.',
-    note: 'You can add a short note about what you find interesting in it.',
-    placeholder: true,
+    id: 'never-lose-again',
+    text: 'From this moment forward, I will never lose again.',
   },
   {
-    id: 'second-quote',
-    text: 'A longer passage, a single sentence, or a few words worth keeping.',
-    note: 'Attribution, a book or article title, and a source link are all optional.',
-    placeholder: true,
+    id: 'heart-ablaze',
+    text: 'Set your heart ablaze.',
+  },
+  {
+    id: 'surpass-your-limits',
+    text: 'Surpass your limits.',
+  },
+  {
+    id: 'keep-moving-forward',
+    text: 'Keep moving forward.',
+  },
+  {
+    id: 'ambition-and-agency',
+    text: 'Ambition without agency is just a dream.',
+  },
+  {
+    id: 'everything-i-wished-for',
+    text: 'This is everything I wished for.',
+    attribution: 'Wemby',
+  },
+  {
+    id: 'hiding-my-emotions',
+    text: 'I refuse to carry the burden of hiding my emotions.',
+  },
+  {
+    id: 'never-to-be-born-again',
+    text: "I'm a living thing never to be born again.",
+  },
+  {
+    id: 'stand-so-tall',
+    text: 'Stand so tall others want to grow too.',
+  },
+  {
+    id: 'clinging-to-reason',
+    text: 'Reason exists for those who cannot live without clinging to it.',
+  },
+  {
+    id: 'winning-is-the-only-thing',
+    text: 'Just fighting for its own sake is meaningless. A mere survival is not enough of a purpose. '
+      + 'I wanna win this. Winning is the only thing.',
+  },
+  {
+    id: 'empty-present-clear',
+    text: 'I can sense no anger from him, no rage, no fear. He is empty, present, clear.',
+  },
+  {
+    id: 'the-feeling-of-winning',
+    text: 'The feeling of winning will be unimaginable.',
   },
 ]);
