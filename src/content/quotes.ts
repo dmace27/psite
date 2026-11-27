@@ -29,11 +29,6 @@ export const quotes = quotesSchema.parse([
     text: 'Ambition without agency is just a dream.',
   },
   {
-    id: 'everything-i-wished-for',
-    text: 'This is everything I wished for.',
-    attribution: 'Wemby',
-  },
-  {
     id: 'hiding-my-emotions',
     text: 'I refuse to carry the burden of hiding my emotions.',
     attribution: 'Wemby',
@@ -52,6 +47,11 @@ export const quotes = quotesSchema.parse([
       + 'I wanna win this. Winning is the only thing.',
     attribution: 'Ichigo Kurosaki',
     source: 'Bleach',
+  },
+  {
+    id: 'everything-i-wished-for',
+    text: 'This is everything I wished for.',
+    attribution: 'Wemby',
   },
   {
     id: 'empty-present-clear',
