@@ -52,6 +52,11 @@ export const mediaGroups = mediaGroupsSchema.parse([
       creator: 'Sam Altman',
       href: 'https://blog.samaltman.com/idea-generation',
     },
+    {
+      title: 'Machines of Loving Grace',
+      creator: 'Dario Amodei',
+      href: 'https://darioamodei.com/essay/machines-of-loving-grace',
+    },
   ] },
   { id: 'other-media', title: 'other things', items: [
     { title: '2022 FIFA World Cup Final', note: 'Argentina vs. France' },
