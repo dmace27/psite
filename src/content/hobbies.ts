@@ -69,6 +69,15 @@ export const hobbies = hobbiesSchema.parse([
     ],
   },
   {
+    id: 'chess',
+    title: 'chess',
+    paragraphs: [[{
+      text: 'I play chess recreationally with my friends and online. '
+        + 'I am trying to get better, but I am not that good yet. '
+        + 'When I am happy with my rating, my Chess.com profile will be linked here, but that time has not come yet.',
+    }]],
+  },
+  {
     id: 'gym',
     title: 'gym',
     paragraphs: [[{ text: "I enjoy lifting weights. I don't like leg day. I use soccer as an excuse to skip leg day." }]],
