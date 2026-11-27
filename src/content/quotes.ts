@@ -31,6 +31,10 @@ export const quotes = quotesSchema.parse([
     text: 'Ambition without agency is just a dream.',
   },
   {
+    id: 'an-ambition-of-your-choosing',
+    text: 'What a privilege it is to be exhausted by an ambition of your choosing.',
+  },
+  {
     id: 'hiding-my-emotions',
     text: 'I refuse to carry the burden of hiding my emotions.',
     attribution: 'Wemby',
