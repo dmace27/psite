@@ -6,8 +6,8 @@ export const siteContent = siteSchema.parse({
   identity: {
     name: 'Daniel Mace ',
     introduction: [[
-      { text: 'I study Computer\u00a0Science at the ' },
-      { text: 'University of Waterloo', tone: 'sand' },
+      { text: 'Computer science at ' },
+      { text: 'Waterloo', tone: 'sand' },
     ]],
     links: [],
   },
