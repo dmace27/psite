@@ -27,6 +27,7 @@ export const mediaGroups = mediaGroupsSchema.parse([
   ] },
   { id: 'movies', title: 'movies', items: [
     { title: 'Interstellar' },
+    { title: 'The Secret Life of Walter Mitty' },
     { title: 'Tenet' },
     { title: 'You Can See Everything' },
   ] },
