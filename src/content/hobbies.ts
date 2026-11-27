@@ -25,6 +25,6 @@ export const hobbies = hobbiesSchema.parse([
   {
     id: 'gym',
     title: 'gym',
-    paragraphs: [[{ text: 'I enjoy working out.' }]],
+    paragraphs: [[{ text: "I enjoy lifting weights. I don't like leg day. I use soccer as an excuse to skip leg day." }]],
   },
 ]);
