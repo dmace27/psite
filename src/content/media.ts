@@ -70,7 +70,4 @@ export const mediaGroups = mediaGroupsSchema.parse([
       href: 'https://paulgraham.com/hwh.html',
     },
   ] },
-  { id: 'other-media', title: 'other things', items: [
-    { title: '2022 FIFA World Cup Final', note: 'Argentina vs. France' },
-  ] },
 ]);
