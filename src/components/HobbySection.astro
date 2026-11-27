@@ -8,12 +8,31 @@ interface Props { hobby: Hobby; }
 const { hobby } = Astro.props;
 ---
 <section class="hobby-section" id={hobby.id} aria-labelledby={`${hobby.id}-heading`}>
-  <header class="hobby-heading">
-    <h2 id={`${hobby.id}-heading`}>{hobby.title}</h2>
-    {hobby.placeholder && <span class="meta">hobby template / replace with your content</span>}
-  </header>
-  <div class="hobby-story">{hobby.paragraphs.map((spans) => <p><RichText spans={spans} /></p>)}</div>
-  {hobby.links.length > 0 && <div class="link-group">{hobby.links.map((link) => <TextLink {...link} arrow />)}</div>}
-  {hobby.photos.length > 0 && <HobbyMedia photos={hobby.photos} label={`${hobby.title} photos`} />}
+  <div class:list={[hobby.photos.length > 0 && 'hobby-layout-with-photos']}>
+    <div>
+      <header class="hobby-heading">
+        <h2 id={`${hobby.id}-heading`}>{hobby.title}</h2>
+        {hobby.placeholder && <span class="meta">hobby template / replace with your content</span>}
+      </header>
+      <div class="hobby-story">{hobby.paragraphs.map((spans) => <p><RichText spans={spans} /></p>)}</div>
+      {hobby.links.length > 0 && <div class="link-group">{hobby.links.map((link) => <TextLink {...link} arrow />)}</div>}
+    </div>
+    {hobby.photos.length > 0 && <HobbyMedia photos={hobby.photos} label={`${hobby.title} photos`} />}
+  </div>
   {hobby.updates.length > 0 && <HobbyUpdates updates={hobby.updates} />}
 </section>
+
+<style>
+  @media (min-width: 44rem) {
+    .hobby-layout-with-photos {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) clamp(12rem, 34%, 18rem);
+      align-items: start;
+      gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .hobby-layout-with-photos > :global(.hobby-media) {
+      margin-top: 0;
+    }
+  }
+</style>
