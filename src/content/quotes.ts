@@ -15,6 +15,12 @@ export const quotes = quotesSchema.parse([
     source: 'One Piece',
   },
   {
+    id: 'dreams-breathe-life',
+    text: 'Dreams breathe life into men, but can cage them in suffering.',
+    attribution: 'Griffith',
+    source: 'Berserk',
+  },
+  {
     id: 'heart-ablaze',
     text: 'Set your heart ablaze.',
     attribution: 'Kyojuro Rengoku',
