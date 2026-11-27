@@ -8,8 +8,7 @@
 | `/projects`               | Dedicated projects list                                         |
 | `/writing`                | Writing index, automatically built from articles                |
 | `/hobbies`                | Personal interests with reusable hobby sections                 |
-| `/writing/first-article`  | First placeholder article                                       |
-| `/writing/second-article` | Second placeholder article                                      |
+| `/writing/on-writing`     | On Writing essay                                                |
 | `/ui`                     | Retained component reference, separate from the main navigation |
 
 All main pages share navigation, light and dark palettes, and a footer. The theme switch beside Other saves the selected palette in the browser. Article pages keep writing highlighted as their current section and have a back-to-index link. The same reading layout handles short notes and longer essays.
@@ -40,7 +39,7 @@ The date is optional, so unfinished content doesn't need an invented publication
 
 The collection definition is `src/content.config.ts`; the shared metadata schema is `src/content/writing-schema.ts`. `src/lib/writing.ts` loads the same visible, sorted collection for the index and routes. `src/pages/writing/[slug].astro` renders Markdown and supplies navigation between articles.
 
-The two current article bodies demonstrate layout only. Their explicit sample links should be updated if the examples are renamed or removed. Production indexing remains disabled until the real site is ready.
+Production indexing remains disabled until the real site is ready.
 
 ## Hobbies / life outside of work
 
