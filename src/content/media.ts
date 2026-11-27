@@ -21,6 +21,7 @@ export const mediaGroups = mediaGroupsSchema.parse([
   ] },
   { id: 'shows', title: 'shows', items: [
     { title: 'One Piece' },
+    { title: 'Only Murders in the Building' },
     { title: 'Attack on Titan' },
     { title: 'Severance' },
   ] },
