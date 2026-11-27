@@ -1,11 +1,75 @@
 ---
 import type { Photo } from '../content/schema';
-interface Props { photos: Photo[]; }
-const { photos } = Astro.props;
+interface Props { photos: Photo[]; label: string; }
+const { photos, label } = Astro.props;
+const hasMultiplePhotos = photos.length > 1;
 ---
-<div class:list={['hobby-media', photos.length > 1 && 'hobby-media-grid']}>
+<div
+  class:list={['hobby-media', hasMultiplePhotos && 'hobby-media-grid']}
+  data-hobby-carousel={hasMultiplePhotos ? '' : undefined}
+  role={hasMultiplePhotos ? 'group' : undefined}
+  aria-label={hasMultiplePhotos ? label : undefined}
+>
   {photos.map((photo) => <figure>
     <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
     <figcaption class="meta">{photo.caption}</figcaption>
   </figure>)}
+  {hasMultiplePhotos && (
+    <div class="photo-controls" data-photo-controls hidden>
+      <button class="button quiet" type="button" data-photo-step="-1" aria-label="Previous photo">previous</button>
+      <span class="meta" data-photo-position aria-live="polite" aria-atomic="true">1 of {photos.length}</span>
+      <button class="button quiet" type="button" data-photo-step="1" aria-label="Next photo">next</button>
+    </div>
+  )}
 </div>
+
+<script>
+  for (const carousel of document.querySelectorAll<HTMLElement>('[data-hobby-carousel]')) {
+    const photos = Array.from(carousel.querySelectorAll('figure'));
+    const controls = carousel.querySelector<HTMLElement>('[data-photo-controls]');
+    const position = carousel.querySelector<HTMLElement>('[data-photo-position]');
+    if (!controls || !position) continue;
+
+    let currentPhoto = 0;
+    for (const photo of photos.slice(1)) photo.hidden = true;
+    carousel.dataset.carouselReady = '';
+    carousel.setAttribute('aria-roledescription', 'carousel');
+    controls.hidden = false;
+
+    // Each gallery wraps independently and leaves keyboard focus on the active control.
+    for (const button of controls.querySelectorAll<HTMLButtonElement>('[data-photo-step]')) {
+      const step = Number(button.dataset.photoStep);
+      button.addEventListener('click', () => {
+        photos[currentPhoto].hidden = true;
+        currentPhoto = (currentPhoto + step + photos.length) % photos.length;
+        photos[currentPhoto].hidden = false;
+        position.textContent = `${currentPhoto + 1} of ${photos.length}`;
+      });
+    }
+  }
+</script>
+
+<style>
+  .hobby-media[data-carousel-ready] {
+    display: block;
+    max-width: 28rem;
+  }
+
+  [data-carousel-ready] img {
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    background: var(--surface);
+  }
+
+  .photo-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-top: .75rem;
+  }
+
+  .photo-controls [data-photo-position] {
+    font-variant-numeric: tabular-nums;
+  }
+</style>

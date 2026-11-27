@@ -86,10 +86,10 @@ The separate `/hobbies` page extends the primary navigation. Its content comes f
 | Component | Input | Behaviour |
 | --- | --- | --- |
 | HobbySection | hobby: Hobby | Accessible h2 section, rich paragraphs, optional links/media/updates |
-| HobbyMedia | photos: Photo[] | One full-width image or a responsive multi-photo gallery, alt text and captions |
+| HobbyMedia | photos: Photo[], label: string | One image or a manual carousel, with alt text, captions, and a gallery fallback |
 | HobbyUpdates | updates: Hobby['updates'] | Authored recent-activity notes with optional date and link |
 
-Hobby = `{ id, title, paragraphs, photos?, links?, updates?, placeholder? }`. An update has `{ title, detail, date?, href? }`. Optional arrays default to empty. IDs are unique and cannot use the main landmark ID. Sections render in their authored order, and the page index derives from those same IDs. On phones navigation wraps into a second row and multi-photo media stacks vertically.
+Hobby = `{ id, title, paragraphs, photos?, links?, updates?, placeholder? }`. An update has `{ title, detail, date?, href? }`. Optional arrays default to empty. IDs are unique and cannot use the main landmark ID. Sections render in their authored order, and the page index derives from those same IDs. On phones, navigation wraps and the gallery fallback stacks vertically.
 
 ## Personal media and quotes
 

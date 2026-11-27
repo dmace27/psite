@@ -65,7 +65,7 @@ Each section uses `HobbySection.astro`. Required fields are `id`, `title`, and `
 }
 ```
 
-Omit optional fields when they aren't useful. A hobby can be text-only. Multiple photos form a small responsive gallery. Updates accept an optional display `date` and destination `href`; these are authored notes, not automatic activity feeds. Links can point to a workout profile, music covers, reading list, collection, or another relevant destination when supplied.
+Omit optional fields when they aren't useful. A hobby can be text-only. Multiple photos appear in a carousel with previous and next buttons. They appear in a responsive gallery when JavaScript is disabled. Updates accept an optional display `date` and destination `href`; these are authored notes, not automatic activity feeds. Links can point to a workout profile, music covers, reading list, collection, or another relevant destination when supplied.
 
 IDs must be unique lowercase names and cannot be `main`, since they're page anchors. The page index is generated from the same hobby list. Remove `placeholder: true` and replace the neutral placeholder image when adding actual content. Removing all entries shows a simple empty state.
 

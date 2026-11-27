@@ -14,6 +14,6 @@ const { hobby } = Astro.props;
   </header>
   <div class="hobby-story">{hobby.paragraphs.map((spans) => <p><RichText spans={spans} /></p>)}</div>
   {hobby.links.length > 0 && <div class="link-group">{hobby.links.map((link) => <TextLink {...link} arrow />)}</div>}
-  {hobby.photos.length > 0 && <HobbyMedia photos={hobby.photos} />}
+  {hobby.photos.length > 0 && <HobbyMedia photos={hobby.photos} label={`${hobby.title} photos`} />}
   {hobby.updates.length > 0 && <HobbyUpdates updates={hobby.updates} />}
 </section>

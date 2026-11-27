@@ -13,6 +13,29 @@ export const hobbies = hobbiesSchema.parse([
         + 'I also captained my high school team and earned first-team all-county honors two years in a row. '
         + 'Now I just play intramurals at Waterloo.',
     }]],
+    photos: [
+      {
+        src: '/images/hobbies/soccer-8777.webp',
+        alt: 'A goalkeeper in a bright green kit points downfield with the ball at his feet.',
+        caption: 'Directing play from goal.',
+        width: 960,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/soccer-9946.webp',
+        alt: 'A goalkeeper dives low beside the goalpost with a gloved hand stretched out.',
+        caption: 'A dive by the goalpost.',
+        width: 960,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/soccer-8686.webp',
+        alt: 'A goalkeeper in a bright green kit kicks the ball across the field.',
+        caption: 'Playing the ball out from the back.',
+        width: 960,
+        height: 1440,
+      },
+    ],
   },
   {
     id: 'hiking',
@@ -21,6 +44,36 @@ export const hobbies = hobbiesSchema.parse([
       text: 'I enjoy touching grass and connecting with nature. My family and I go on many hiking trips. '
         + 'Most recently, we hiked in Grand Teton National Park and Yellowstone National Park.',
     }]],
+    photos: [
+      {
+        src: '/images/hobbies/hiking-3626.webp',
+        alt: 'A childhood photo in front of turquoise water, a pine forest, and distant mountains.',
+        caption: 'By the water on an early family trip.',
+        width: 1297,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/hiking-3772.webp',
+        alt: 'A hiker with a blue backpack follows a rocky trail beneath steep mountain peaks.',
+        caption: 'A rocky trail through the mountains.',
+        width: 1080,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/hiking-3856.webp',
+        alt: 'A hiker in a blue jacket stands among rocks beside a stream and a pine forest.',
+        caption: 'A stop by the stream.',
+        width: 1080,
+        height: 1440,
+      },
+      {
+        src: '/images/hobbies/hiking-4060.webp',
+        alt: 'A hiker looks across still water toward the Tetons reflected in the lake.',
+        caption: 'The Tetons reflected in the water.',
+        width: 1080,
+        height: 1440,
+      },
+    ],
   },
   {
     id: 'gym',
