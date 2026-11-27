@@ -30,6 +30,7 @@ export const quotes = quotesSchema.parse([
   {
     id: 'hiding-my-emotions',
     text: 'I refuse to carry the burden of hiding my emotions.',
+    attribution: 'Wemby',
   },
   {
     id: 'never-to-be-born-again',
