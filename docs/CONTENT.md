@@ -58,7 +58,7 @@ Each section uses `HobbySection.astro`. Required fields are `id`, `title`, and `
   photos: [{
     src: '/images/your-photo.webp',
     alt: 'A useful description of the actual image.',
-    caption: 'A short caption.',
+    caption: 'A short optional caption.',
     width: 1200,
     height: 800,
   }],

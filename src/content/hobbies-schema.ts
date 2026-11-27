@@ -8,7 +8,7 @@ export const hobbySchema = z.object({
   id: z.string().regex(/^[a-z][a-z0-9-]*$/, 'Use a lowercase, URL-safe hobby ID.'),
   title: text,
   paragraphs: z.array(paragraphSchema).min(1),
-  photos: z.array(photoSchema).default([]),
+  photos: z.array(photoSchema.partial({ caption: true })).default([]),
   links: z.array(linkSchema).default([]),
   updates: z.array(z.object({
     title: text,

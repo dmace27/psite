@@ -1,6 +1,6 @@
 ---
-import type { Photo } from '../content/schema';
-interface Props { photos: Photo[]; label: string; }
+import type { Hobby } from '../content/hobbies-schema';
+interface Props { photos: Hobby['photos']; label: string; }
 const { photos, label } = Astro.props;
 const hasMultiplePhotos = photos.length > 1;
 ---
@@ -12,7 +12,7 @@ const hasMultiplePhotos = photos.length > 1;
 >
   {photos.map((photo) => <figure>
     <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
-    <figcaption class="meta">{photo.caption}</figcaption>
+    {photo.caption && <figcaption class="meta">{photo.caption}</figcaption>}
   </figure>)}
   {hasMultiplePhotos && (
     <div class="photo-controls" data-photo-controls hidden>
