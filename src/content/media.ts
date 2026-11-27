@@ -35,8 +35,8 @@ export const mediaGroups = mediaGroupsSchema.parse([
     { title: 'Atomic Habits', creator: 'James Clear' },
     { title: 'Essentialism', creator: 'Greg McKeown' },
     { title: 'Introduction to Algorithms', creator: 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein' },
-    { title: 'Introduction to Probability' },
-    { title: 'Silver Spring' },
+    { title: 'Introduction to Probability', creator: 'Joseph K. Blitzstein and Jessica Hwang' },
+    { title: 'Silent Spring', creator: 'Rachel Carson' },
   ] },
   { id: 'pieces-of-writing', title: 'pieces of writing', items: [
     {
