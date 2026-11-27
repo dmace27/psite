@@ -6,7 +6,7 @@ import EmptyState from '../components/EmptyState.astro';
 import { quotes } from '../content/quotes';
 import { siteContent } from '../content/site';
 
-const description = 'these are quotes that I think about a lot.';
+const description = 'these are quotes that I think about a lot';
 ---
 <SiteLayout title={`quotes / ${siteContent.identity.name}`} description={description}>
   <PageHeading title="quotes" description={description} placeholder={quotes.some((quote) => quote.placeholder)} />
