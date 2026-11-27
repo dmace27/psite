@@ -5,7 +5,10 @@ export const siteContent = siteSchema.parse({
   metadata: { title: 'Daniel Mace', description: 'Personal site'},
   identity: {
     name: 'Daniel Mace ',
-    introduction: [[{ text: 'Computer science at Waterloo' }]],
+    introduction: [[
+      { text: 'I study Computer\u00a0Science at the ' },
+      { text: 'University of Waterloo', tone: 'sand' },
+    ]],
     links: [],
   },
   navigation: [

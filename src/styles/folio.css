@@ -107,22 +107,25 @@ body:has(.folio) > .page-shell {
 .folio-current-list { list-style: none; }
 .folio-current-list li + li { margin-top: .35rem; }
 
-/* Keep the name and its byline together above the landscape. */
+/* The Folio gives the name and introduction the proportions of a print cover. */
 .folio-hero {
-  padding-block: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: end;
+  gap: clamp(1.5rem, 6vw, 5rem);
+  padding-block: clamp(1.75rem, 3.5vw, 3rem);
 }
 .folio-hero h1 {
-  font-size: clamp(4.5rem, 12vw, 8.25rem);
+  font-size: clamp(5.25rem, 12vw, 10rem);
   font-weight: 400;
-  letter-spacing: -.075em;
-  line-height: .9;
-}
-.folio-intro {
-  margin-top: clamp(.75rem, 1.8vw, 1.25rem);
+  letter-spacing: -.085em;
+  line-height: .77;
 }
 .folio-intro p {
-  color: var(--subtle);
-  font: 400 clamp(1rem, 1.6vw, 1.125rem)/1.5 var(--mono);
+  max-width: 17ch;
+  font: 400 clamp(1.35rem, 2.7vw, 2.25rem)/1.16 var(--display);
+  letter-spacing: -.035em;
+  text-wrap: balance;
 }
 .folio-landscape img {
   /* Trim the open sky while leaving room for the peaks and their reflection. */
@@ -148,11 +151,11 @@ body:has(.folio) > .page-shell {
 .folio-current .folio-current-list { margin-top: .8rem; color: var(--subtle); }
 
 @media (max-width: 760px) {
-  .folio-columns { grid-template-columns: 1fr 1fr; }
+  .folio-hero, .folio-columns { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 520px) {
   .folio-header { gap: .75rem; }
   .folio-header nav { --nav-gap: .75rem; row-gap: .35rem; }
-  .folio-columns { grid-template-columns: 1fr; }
+  .folio-hero, .folio-columns { grid-template-columns: 1fr; }
 }
