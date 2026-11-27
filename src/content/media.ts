@@ -59,6 +59,16 @@ export const mediaGroups = mediaGroupsSchema.parse([
       creator: 'Dario Amodei',
       href: 'https://darioamodei.com/essay/machines-of-loving-grace',
     },
+    {
+      title: 'First Principles Thinking',
+      creator: 'Farnam Street',
+      href: 'https://fs.blog/first-principles/',
+    },
+    {
+      title: 'How to Work Hard',
+      creator: 'Paul Graham',
+      href: 'https://paulgraham.com/hwh.html',
+    },
   ] },
   { id: 'other-media', title: 'other things', items: [
     { title: '2022 FIFA World Cup Final', note: 'Argentina vs. France' },
