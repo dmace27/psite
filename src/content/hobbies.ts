@@ -24,13 +24,4 @@ export const hobbies = hobbiesSchema.parse([
       height: 640,
     }],
   },
-  {
-    id: 'another-interest',
-    title: 'another interest',
-    placeholder: false,
-    paragraphs: [
-      [{ text: 'Something you like reading, watching, exploring, collecting, or learning about.' }],
-      [{ text: 'A hobby can be just a few sentences. Add photos, recent updates, or profile links only when you want them.' }],
-    ],
-  },
 ]);
