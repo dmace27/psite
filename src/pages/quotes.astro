@@ -5,8 +5,10 @@ import QuoteCard from '../components/QuoteCard.astro';
 import EmptyState from '../components/EmptyState.astro';
 import { quotes } from '../content/quotes';
 import { siteContent } from '../content/site';
+
+const description = 'these are quotes that I think about a lot. some have descriptions of what I think about them or their significance and some do not';
 ---
-<SiteLayout title={`quotes / ${siteContent.identity.name}`} description="Words and passages worth holding onto.">
-  <PageHeading title="quotes" description="Words and passages worth holding onto." placeholder={quotes.some((quote) => quote.placeholder)} />
+<SiteLayout title={`quotes / ${siteContent.identity.name}`} description={description}>
+  <PageHeading title="quotes" description={description} placeholder={quotes.some((quote) => quote.placeholder)} />
   {quotes.length ? <div class="quote-list">{quotes.map((quote) => <QuoteCard quote={quote} />)}</div> : <EmptyState message="a few words to keep here, soon." />}
 </SiteLayout>
