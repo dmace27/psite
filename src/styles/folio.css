@@ -122,10 +122,15 @@ body:has(.folio) > .page-shell {
   line-height: .77;
 }
 .folio-intro p {
-  max-width: 17ch;
-  font: 400 clamp(1.35rem, 2.7vw, 2.25rem)/1.16 var(--display);
-  letter-spacing: -.035em;
+  color: var(--subtle);
+  font: 400 clamp(1.125rem, 2.05vw, 1.5rem)/1.35 var(--display);
+  letter-spacing: -.02em;
   text-wrap: balance;
+}
+.folio-intro .highlight {
+  color: var(--signal);
+  font-style: italic;
+  font-weight: inherit;
 }
 .folio-landscape img {
   /* Trim the open sky while leaving room for the peaks and their reflection. */
@@ -158,4 +163,5 @@ body:has(.folio) > .page-shell {
   .folio-header { gap: .75rem; }
   .folio-header nav { --nav-gap: .75rem; row-gap: .35rem; }
   .folio-hero, .folio-columns { grid-template-columns: 1fr; }
+  .folio-hero { row-gap: .9rem; }
 }
