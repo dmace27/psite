@@ -60,11 +60,16 @@
 }
 .folio-interior .section-index a:first-child { border-top: 1px solid var(--line); }
 .folio-interior :is(.project-list > li, .article-list li) {
-  padding-block: 1.5rem;
   border: 0;
   border-top: 1px solid var(--line);
 }
+.folio-interior .project-list > li { padding-block: 1.5rem; }
 .folio-interior .project-rows > li + li { margin-top: 0; }
+.folio-interior .article-list > li { padding-block: .75rem; }
+.folio-interior .article-list .article-list-top {
+  flex-flow: row wrap;
+  gap: .25rem 1rem;
+}
 .folio-interior :is(.project-title .project-item-heading, .article-list h2) {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
